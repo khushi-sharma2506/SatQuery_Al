@@ -1956,4 +1956,60 @@ const JarvisGodEye = AntarikshAstra;
 document.addEventListener('DOMContentLoaded', () => {
     window.astraApp = new AntarikshAstra();
     window.jarvisApp = window.astraApp;
-});
+    appendChatMsg(text, isAi=true) {
+        if(!this.chatHistory) return;
+        const div = document.createElement('div');
+        div.className = 'chat-msg ' + (isAi ? 'ai-msg' : 'user-msg');
+        div.textContent = text;
+        this.chatHistory.appendChild(div);
+        this.chatHistory.scrollTop = this.chatHistory.scrollHeight;
+        
+        if(isAi) {
+            // Text to speech
+            const msg = new SpeechSynthesisUtterance(text);
+            msg.rate = 1.05;
+            msg.pitch = 0.9;
+            window.speechSynthesis.speak(msg);
+        }
+    }
+
+    async handleChatQuery(query) {
+        if(!query.trim()) return;
+        this.appendChatMsg(query, false);
+        this.chatInput.value = '';
+        
+        this.audio.playSonar();
+        
+        // Demo specific responses for the Hackathon
+        const q = query.toLowerCase();
+        setTimeout(() => {
+            if(q.includes('deforestation') || q.includes('change')) {
+                this.appendChatMsg("Analyzing bi-temporal optical pairs for deforestation front...");
+                setTimeout(() => {
+                    this.appendChatMsg("Result: 2.4 sq km forest loss detected. Confidence 0.94. Displaying visual intel.");
+                    this.showImagePopup(
+                        "https://earthobservatory.nasa.gov/images/145980/brazil-deforestation", 
+                        "https://earthobservatory.nasa.gov/images/145980/brazil-deforestation"
+                    ); // Replace with real placeholders if needed, or leave blank to show borders
+                }, 3000);
+            } else if (q.includes('sar') || q.includes('cartosat') || q.includes('fusion')) {
+                this.appendChatMsg("Cross-referencing Cartosat optical with RISAT SAR backscatter...");
+                setTimeout(() => {
+                    this.appendChatMsg("Result: Unauthorized construction identified. Confidence 0.88. Displaying SAR fusion overlay.");
+                    this.showImagePopup("", "");
+                }, 3000);
+            } else {
+                this.appendChatMsg("Acquiring telemetry for: " + query + ". No immediate anomalies detected in standard visual sweep.");
+            }
+        }, 1000);
+    }
+
+    showImagePopup(img1Src, img2Src) {
+        if(!this.imgPopup) return;
+        // Using some placeholder static images from public domains or just solid colors for hackathon mock
+        this.img1.src = "https://www.isro.gov.in/media_isro/image/index/Gallery/EarthObservation/10_Cartosat2series_Doha.jpg"; 
+        this.img2.src = "https://www.isro.gov.in/media_isro/image/index/Gallery/EarthObservation/9_Cartosat2series_Doha.jpg";
+        this.imgPopup.classList.remove('hidden');
+    }
+}
+

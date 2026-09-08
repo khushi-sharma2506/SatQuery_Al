@@ -1,3 +1,4 @@
+ï»¿# -*- coding: utf-8 -*-
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -32,7 +33,7 @@ async def process_query(request: QueryRequest):
             "lng": 78.9629,
             "target_name": "DEFORESTATION FRONT, INDIA",
             "trace": "EXECUTING TRACE: VLM_ENCODER -> CHANGE_DETECTION -> MASKING...",
-            "result": "RESULT: 2.4 KM² FOREST LOSS DETECTED. CONFIDENCE: 0.94. TRACE LOGGED."
+            "result": "RESULT: 2.4 SQ KM FOREST LOSS DETECTED. CONFIDENCE: 0.94. TRACE LOGGED."
         }
     elif "sar" in query or "cartosat" in query or "fusion" in query:
         return {

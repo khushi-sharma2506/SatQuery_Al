@@ -688,7 +688,7 @@ html, body {
     transform: rotate(180deg);
 }
 #bottom-panel.collapsed #favorites-container {
-    display: none;
+    display: none !important;
 }
 #bottom-panel.collapsed .panel-header-bar {
     border-bottom: none;

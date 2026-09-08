@@ -1918,7 +1918,7 @@ class AntarikshAstra {
         }
     }
 
-    // ── TARGETING RETICLE PROJECTION ON SCREEN ──────
+    // TARGETING RETICLE PROJECTION ON SCREEN
     updateReticlePosition() {
         if (!this.locationMarker || !this.currentLocation || !this.dom.targeting_reticle) return;
 
@@ -1928,7 +1928,6 @@ class AntarikshAstra {
             CONFIG.earth.radius
         );
 
-        // Check if facing camera
         const camDir = this.camera.position.clone().normalize();
         const pointDir = pos.clone().normalize();
         const dot = camDir.dot(pointDir);
@@ -1938,24 +1937,15 @@ class AntarikshAstra {
             const x = (projected.x * 0.5 + 0.5) * window.innerWidth;
             const y = -(projected.y * 0.5 - 0.5) * window.innerHeight;
 
-            this.dom.targeting_reticle.style.left = `${x}px`;
-            this.dom.targeting_reticle.style.top = `${y}px`;
+            this.dom.targeting_reticle.style.left = $x + 'px';
+            this.dom.targeting_reticle.style.top = $y + 'px';
             this.dom.targeting_reticle.style.opacity = '1';
             this.dom.targeting_reticle.style.visibility = 'visible';
         } else {
             this.dom.targeting_reticle.style.opacity = '0';
         }
     }
-}
 
-const JarvisGodEye = AntarikshAstra;
-
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// LAUNCH APPLICATION
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-document.addEventListener('DOMContentLoaded', () => {
-    window.astraApp = new AntarikshAstra();
-    window.jarvisApp = window.astraApp;
     appendChatMsg(text, isAi=true) {
         if(!this.chatHistory) return;
         const div = document.createElement('div');
@@ -2006,10 +1996,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     showImagePopup(img1Src, img2Src) {
         if(!this.imgPopup) return;
-        // Using some placeholder static images from public domains or just solid colors for hackathon mock
         this.img1.src = "https://www.isro.gov.in/media_isro/image/index/Gallery/EarthObservation/10_Cartosat2series_Doha.jpg"; 
         this.img2.src = "https://www.isro.gov.in/media_isro/image/index/Gallery/EarthObservation/9_Cartosat2series_Doha.jpg";
         this.imgPopup.classList.remove('hidden');
     }
-}
 
+} // END OF ANTARIKSHA ASTRA CLASS
+
+const JarvisGodEye = AntarikshAstra;
+
+document.addEventListener('DOMContentLoaded', () => {
+    window.astraApp = new AntarikshAstra();
+    window.jarvisApp = window.astraApp;
+});

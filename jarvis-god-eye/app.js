@@ -1,14 +1,14 @@
-/* ═══════════════════════════════════════════════════════════════
-   ANTARIKSH ASTRA — SPATIAL INTELLIGENCE CORE v2
-   Three.js · Satellite Telemetry · Web Audio · Live Intelligence
-   ═══════════════════════════════════════════════════════════════ */
+﻿/* Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰
+   ANTARIKSH ASTRA Î“Ã‡Ã¶ SPATIAL INTELLIGENCE CORE v2
+   Three.js â”¬â•– Satellite Telemetry â”¬â•– Web Audio â”¬â•– Live Intelligence
+   Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰Î“Ã²Ã‰ */
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼
 // CONFIGURATION & ORBITAL TELEMETRY
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼
 const CONFIG = {
     earth: { radius: 5, segments: 64 },
     atmosphere: { radius: 5.22, color: new THREE.Color(0x00d4ff) },
@@ -16,11 +16,11 @@ const CONFIG = {
     starfield: { count: 8000, radius: 400 },
     camera: { fov: 45, near: 0.1, far: 2000, distance: 16 },
     satellites: [
-        { name: 'SAT-01 TITAN', type: 'KH-11 KENNAN', radius: 6.3, speed: 0.0038, inclination: 0.35, phase: 0.2, alt: '542 KM', vel: '7.64 KM/S', inc: '97.4° SSO', status: 'LOCKED 99.8%' },
-        { name: 'SAT-02 ORION', type: 'MENTOR SIGINT', radius: 7.2, speed: 0.0028, inclination: -0.45, phase: 1.5, alt: '780 KM', vel: '7.45 KM/S', inc: '63.4° MOL', status: 'SYNCHRONIZED' },
-        { name: 'SAT-03 VEGA', type: 'LACROSSE-5 SAR', radius: 6.7, speed: 0.0033, inclination: 0.68, phase: 2.8, alt: '690 KM', vel: '7.52 KM/S', inc: '57.0° LEO', status: 'RADAR ACTIVE' },
-        { name: 'SAT-04 LYRA', type: 'TOPAZ FIA-R', radius: 7.6, speed: 0.0022, inclination: -0.28, phase: 4.1, alt: '1,080 KM', vel: '7.31 KM/S', inc: '123.0° RETRO', status: 'STANDBY SCAN' },
-        { name: 'SAT-05 NOVA', type: 'SBIRS-GEO IR', radius: 8.2, speed: 0.0018, inclination: 0.85, phase: 5.3, alt: '1,420 KM', vel: '7.12 KM/S', inc: '82.5° POLAR', status: 'OPTICAL LOCK' },
+        { name: 'SAT-01 TITAN', type: 'KH-11 KENNAN', radius: 6.3, speed: 0.0038, inclination: 0.35, phase: 0.2, alt: '542 KM', vel: '7.64 KM/S', inc: '97.4â”¬â–‘ SSO', status: 'LOCKED 99.8%' },
+        { name: 'SAT-02 ORION', type: 'MENTOR SIGINT', radius: 7.2, speed: 0.0028, inclination: -0.45, phase: 1.5, alt: '780 KM', vel: '7.45 KM/S', inc: '63.4â”¬â–‘ MOL', status: 'SYNCHRONIZED' },
+        { name: 'SAT-03 VEGA', type: 'LACROSSE-5 SAR', radius: 6.7, speed: 0.0033, inclination: 0.68, phase: 2.8, alt: '690 KM', vel: '7.52 KM/S', inc: '57.0â”¬â–‘ LEO', status: 'RADAR ACTIVE' },
+        { name: 'SAT-04 LYRA', type: 'TOPAZ FIA-R', radius: 7.6, speed: 0.0022, inclination: -0.28, phase: 4.1, alt: '1,080 KM', vel: '7.31 KM/S', inc: '123.0â”¬â–‘ RETRO', status: 'STANDBY SCAN' },
+        { name: 'SAT-05 NOVA', type: 'SBIRS-GEO IR', radius: 8.2, speed: 0.0018, inclination: 0.85, phase: 5.3, alt: '1,420 KM', vel: '7.12 KM/S', inc: '82.5â”¬â–‘ POLAR', status: 'OPTICAL LOCK' },
     ],
     textures: {
         earth: 'https://unpkg.com/three-globe@2.31.1/example/img/earth-blue-marble.jpg',
@@ -128,7 +128,7 @@ const STRATEGIC_LOCATIONS = {
         landmarks: [
             { name: 'Shibuya Crossing', lat: 35.6595, lng: 139.7005 },
             { name: 'Tokyo Tower', lat: 35.6586, lng: 139.7454 },
-            { name: 'Sensō-ji Temple', lat: 35.7148, lng: 139.7967 },
+            { name: 'Sensâ”¼Ã¬-ji Temple', lat: 35.7148, lng: 139.7967 },
             { name: 'Shinjuku Gyoen', lat: 35.6852, lng: 139.7100 }
         ]
     },
@@ -240,9 +240,9 @@ const WEATHER_CODES = {
     95: 'Severe Thunderstorm', 96: 'Thunderstorm + Hail'
 };
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼
 // WEB AUDIO SCI-FI SOUND SYNTHESIZER
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼
 class AstraAudio {
     constructor() {
         this.ctx = null;
@@ -333,9 +333,9 @@ class AstraAudio {
 }
 const JarvisAudio = AstraAudio;
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼
 // ANTARIKSH ASTRA PROTOCOL CLASS
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼
 class AntarikshAstra {
     constructor() {
         this.audio = new AstraAudio();
@@ -375,7 +375,7 @@ class AntarikshAstra {
         this.init();
     }
 
-    // ── INITIALIZATION ──────────────────────────────
+    // Î“Ã¶Ã‡Î“Ã¶Ã‡ INITIALIZATION Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡
     async init() {
         this.cacheDom();
         this.loadFavorites();
@@ -482,7 +482,7 @@ class AntarikshAstra {
         }
     }
 
-    // ── BOOT SEQUENCE (Cold Start) ───────────────────
+    // Î“Ã¶Ã‡Î“Ã¶Ã‡ BOOT SEQUENCE (Cold Start) Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡
     async bootSequence() {
         const messages = [
             'INITIALIZING ANTARIKSH ASTRA SPATIAL MATRIX...',
@@ -491,7 +491,7 @@ class AntarikshAstra {
             'CALIBRATING ANTARIKSH ASTRA SENSOR SUITE...',
             'SYNCHRONIZING MGRS GEODETIC RECONNAISSANCE...',
             'DEPLOYING RECON OVERLAY & SCOPE VIGNETTE...',
-            'ALL SYSTEMS OPERATIONAL ■ PROTOCOL ACTIVE',
+            'ALL SYSTEMS OPERATIONAL Î“Ã»Ã¡ PROTOCOL ACTIVE',
         ];
 
         const bootText = this.dom.boot_text;
@@ -532,9 +532,9 @@ class AntarikshAstra {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼
     // THREE.JS 3D SCENE & ASSETS
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼
     initScene() {
         this.scene = new THREE.Scene();
 
@@ -586,7 +586,7 @@ class AntarikshAstra {
         this.controls.target.set(0, 0, 0);
     }
 
-    // ── PROCEDURAL EARTH FALLBACK ────────────────────
+    // Î“Ã¶Ã‡Î“Ã¶Ã‡ PROCEDURAL EARTH FALLBACK Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡
     createProceduralEarthCanvas() {
         const canvas = document.createElement('canvas');
         canvas.width = 1024;
@@ -623,7 +623,7 @@ class AntarikshAstra {
         return new THREE.CanvasTexture(canvas);
     }
 
-    // ── EARTH ───────────────────────────────────────
+    // Î“Ã¶Ã‡Î“Ã¶Ã‡ EARTH Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡
     createEarth() {
         const { radius, segments } = CONFIG.earth;
         const geometry = new THREE.SphereGeometry(radius, segments, segments);
@@ -653,7 +653,7 @@ class AntarikshAstra {
         this.scene.add(this.earth);
     }
 
-    // ── ATMOSPHERE GLOW ─────────────────────────────
+    // Î“Ã¶Ã‡Î“Ã¶Ã‡ ATMOSPHERE GLOW Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡
     createAtmosphere() {
         const vertexShader = `
             varying vec3 vNormal;
@@ -687,7 +687,7 @@ class AntarikshAstra {
         this.scene.add(this.atmosphere);
     }
 
-    // ── CLOUDS ──────────────────────────────────────
+    // Î“Ã¶Ã‡Î“Ã¶Ã‡ CLOUDS Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡
     createClouds() {
         const loader = new THREE.TextureLoader();
         const cloudTexture = loader.load(CONFIG.textures.clouds, undefined, undefined, () => {});
@@ -704,7 +704,7 @@ class AntarikshAstra {
         this.scene.add(this.clouds);
     }
 
-    // ── STARFIELD ───────────────────────────────────
+    // Î“Ã¶Ã‡Î“Ã¶Ã‡ STARFIELD Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡
     createStarfield() {
         const { count, radius } = CONFIG.starfield;
         const positions = new Float32Array(count * 3);
@@ -742,7 +742,7 @@ class AntarikshAstra {
         this.scene.add(stars);
     }
 
-    // ── SATELLITE CONSTELLATION ─────────────────────
+    // Î“Ã¶Ã‡Î“Ã¶Ã‡ SATELLITE CONSTELLATION Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡
     createSatellites() {
         CONFIG.satellites.forEach((satData, index) => {
             const satGroup = this.createSatelliteMesh(satData.name);
@@ -844,7 +844,7 @@ class AntarikshAstra {
         return group;
     }
 
-    // ── LOCATION TARGET MARKER ──────────────────────
+    // Î“Ã¶Ã‡Î“Ã¶Ã‡ LOCATION TARGET MARKER Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡
     createLocationMarker(lat, lng) {
         if (this.locationMarker) {
             this.scene.remove(this.locationMarker);
@@ -886,7 +886,7 @@ class AntarikshAstra {
         this.scene.add(this.locationMarker);
     }
 
-    // ── COORDINATE MATH ─────────────────────────────
+    // Î“Ã¶Ã‡Î“Ã¶Ã‡ COORDINATE MATH Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡
     latLngToVector3(lat, lng, radius) {
         const phi = (90 - lat) * (Math.PI / 180);
         const theta = (lng + 180) * (Math.PI / 180);
@@ -903,7 +903,7 @@ class AntarikshAstra {
         const deg = Math.floor(absVal);
         const min = Math.floor((absVal - deg) * 60);
         const sec = Math.floor(((absVal - deg) * 60 - min) * 60);
-        return `${String(deg).padStart(isLat ? 2 : 3, '0')}°${String(min).padStart(2, '0')}'${String(sec).padStart(2, '0')}"${dir}`;
+        return `${String(deg).padStart(isLat ? 2 : 3, '0')}â”¬â–‘${String(min).padStart(2, '0')}'${String(sec).padStart(2, '0')}"${dir}`;
     }
 
     // Realistic Military Grid Reference System (MGRS) calculator
@@ -926,7 +926,7 @@ class AntarikshAstra {
         return `${zone}${band} ${sq} ${easting} ${northing}`;
     }
 
-    // ── CINEMATIC FLY-TO CAMERA ─────────────────────
+    // Î“Ã¶Ã‡Î“Ã¶Ã‡ CINEMATIC FLY-TO CAMERA Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡
     flyToLocation(lat, lng) {
         const targetPos = this.latLngToVector3(lat, lng, CONFIG.camera.distance * 0.72);
 
@@ -944,9 +944,9 @@ class AntarikshAstra {
         return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
     }
 
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼
     // SATELLITE RAYCASTING & HOVER INTERACTION
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼
     initRaycasting() {
         window.addEventListener('mousemove', (e) => {
             // Normalized device coordinates (-1 to +1)
@@ -1081,9 +1081,9 @@ class AntarikshAstra {
         });
     }
 
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼
     // SENSOR MODES (God's Eye View: CRT / NVG / FLIR)
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼
     initSensorModes() {
         const buttons = document.querySelectorAll('.sensor-btn');
 
@@ -1144,9 +1144,9 @@ class AntarikshAstra {
         this.typeIntelSummary(`OPTICAL SENSOR RECONFIGURED // ${mode.toUpperCase()} ACTIVE`);
     }
 
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼
     // SEARCH & GEOLOCATION PIPELINE
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼
     initSearch() {
         const input = this.dom.search_input;
         const searchBtn = this.dom.search_btn;
@@ -1228,7 +1228,7 @@ class AntarikshAstra {
 
         container.innerHTML = results.map(r => `
             <div class="suggestion-item" data-lat="${r.lat}" data-lng="${r.lon}" data-name="${r.display_name}">
-                <span class="sg-icon">◎</span>
+                <span class="sg-icon">Î“Ã¹Ã„</span>
                 <span>${r.display_name}</span>
             </div>
         `).join('');
@@ -1250,76 +1250,53 @@ class AntarikshAstra {
     async performSearch(query) {
         if (!query) return;
 
-        if (this.dom.suggestions) this.dom.suggestions.classList.remove('visible');
-        this.setSystemStatus('ACTIVATING DRISHTI AGENTIC PIPELINE...');
-        this.audio.playSonar();
-
-        // --- ATTEMPT TO HIT LIVE BACKEND (The Real Jarvis) ---
-        try {
-            const response = await fetch('http://localhost:8000/api/query', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ query: query })
-            });
-            
-            if (response.ok) {
-                const data = await response.json();
-                this.audio.playLock();
-                this.selectLocation(data.lat, data.lng, data.target_name, true);
-                
-                setTimeout(() => {
-                    this.typeIntelSummary(data.trace);
-                    this.dom.system_status_text.textContent = 'ANALYZING TELEMETRY';
-                }, 500);
-                
-                setTimeout(() => {
-                    this.typeIntelSummary(data.result);
-                    this.audio.playLock();
-                    this.dom.system_status_text.textContent = 'TASK COMPLETE';
-                }, 4000);
-                
-                return; // Exit here if backend succeeds
-            }
-        } catch (error) {
-            console.warn('Backend unreachable. Falling back to Wizard of Oz Demo Mode...');
-        }
-
-        // --- ISRO SATQUERY "WIZARD OF OZ" DEMO OVERRIDES (Fallback) ---
+        // --- ISRO SATQUERY "WIZARD OF OZ" DEMO OVERRIDES ---
         const demoQuery = query.toLowerCase();
         
         if (demoQuery.includes("deforestation") || demoQuery.includes("change")) {
+            if (this.dom.suggestions) this.dom.suggestions.classList.remove('visible');
             this.setSystemStatus('ACTIVATING DRISHTI AGENTIC PIPELINE...');
             this.audio.playLock();
+            
+            // Fly to India coordinates
             this.selectLocation(20.5937, 78.9629, "DEFORESTATION FRONT, INDIA", true);
+            
+            // Override the intel summary after a slight delay
             setTimeout(() => {
                 this.typeIntelSummary("EXECUTING TRACE: VLM_ENCODER -> CHANGE_DETECTION -> MASKING...");
                 this.dom.system_status_text.textContent = 'ANALYZING BI-TEMPORAL PAIR';
             }, 1000);
+            
             setTimeout(() => {
-                this.typeIntelSummary("RESULT: 2.4 KM² FOREST LOSS DETECTED. CONFIDENCE: 0.94. TRACE LOGGED.");
+                this.typeIntelSummary("RESULT: 2.4 KMâ”¬â–“ FOREST LOSS DETECTED. CONFIDENCE: 0.94. TRACE LOGGED.");
                 this.audio.playLock();
                 this.dom.system_status_text.textContent = 'TASK COMPLETE';
             }, 5000);
+            
             return;
         }
 
         if (demoQuery.includes("sar") || demoQuery.includes("cartosat") || demoQuery.includes("fusion")) {
+            if (this.dom.suggestions) this.dom.suggestions.classList.remove('visible');
             this.setSystemStatus('ACTIVATING DOFA SENSOR-AGNOSTIC ENCODER...');
             this.audio.playLock();
+            
             this.selectLocation(28.6139, 77.2090, "RISAT-CARTOSAT ALIGNMENT, NEW DELHI", true);
+            
             setTimeout(() => {
                 this.typeIntelSummary("EXECUTING TRACE: DOFA_SENSOR_ALIGNMENT -> SAR_OPTICAL_FUSION...");
                 this.dom.system_status_text.textContent = 'CROSS-MODAL ANALYSIS';
             }, 1000);
+            
             setTimeout(() => {
                 this.typeIntelSummary("RESULT: UNAUTHORIZED CONSTRUCTION IDENTIFIED. CONFIDENCE: 0.88. TRACE LOGGED.");
                 this.audio.playLock();
                 this.dom.system_status_text.textContent = 'TASK COMPLETE';
             }, 5000);
+            
             return;
         }
         // ---------------------------------------------------
-
 
         if (this.dom.suggestions) this.dom.suggestions.classList.remove('visible');
         this.setSystemStatus('ACQUIRING TELEMETRY...');
@@ -1364,8 +1341,8 @@ class AntarikshAstra {
         this.currentLocation = { lat, lng, name: placeName, displayName, country };
 
         // Update Coordinates UI
-        if (this.dom.data_lat) this.dom.data_lat.textContent = `${lat.toFixed(4)}°`;
-        if (this.dom.data_lon) this.dom.data_lon.textContent = `${lng.toFixed(4)}°`;
+        if (this.dom.data_lat) this.dom.data_lat.textContent = `${lat.toFixed(4)}â”¬â–‘`;
+        if (this.dom.data_lon) this.dom.data_lon.textContent = `${lng.toFixed(4)}â”¬â–‘`;
         if (this.dom.data_alt) this.dom.data_alt.textContent = `${Math.floor(Math.random() * 80 + 15)}m MSL`;
         if (this.dom.data_pop) this.dom.data_pop.textContent = 'CALCULATING...';
 
@@ -1373,7 +1350,7 @@ class AntarikshAstra {
         if (this.dom.intel_mgrs) this.dom.intel_mgrs.textContent = `MGRS: ${this.calcMGRS(lat, lng)}`;
         if (this.dom.intel_latlon) this.dom.intel_latlon.textContent = `${this.toDMS(lat, true)}  ${this.toDMS(lng, false)}`;
         if (this.dom.intel_gsd) this.dom.intel_gsd.textContent = `GSD: ${(0.12 + Math.random() * 0.15).toFixed(2)}m NIIRS: ${(8.2 + Math.random() * 0.6).toFixed(1)}`;
-        if (this.dom.intel_alt) this.dom.intel_alt.textContent = `ALT: ${Math.floor(520 + Math.random() * 40)}KM SUN: ${Math.floor(25 + Math.random() * 45)}° EL`;
+        if (this.dom.intel_alt) this.dom.intel_alt.textContent = `ALT: ${Math.floor(520 + Math.random() * 40)}KM SUN: ${Math.floor(25 + Math.random() * 45)}â”¬â–‘ EL`;
 
         // Update Place Intel Card
         if (this.dom.place_name) this.dom.place_name.textContent = placeName.toUpperCase();
@@ -1448,7 +1425,7 @@ class AntarikshAstra {
 
         this.dom.attractions_list.innerHTML = landmarks.map(lm => `
             <div class="attraction-item" data-name="${lm.name}" data-lat="${lm.lat || ''}" data-lng="${lm.lng || ''}">
-                <span class="attraction-icon">◈</span>
+                <span class="attraction-icon">Î“Ã¹Ãª</span>
                 <span class="attraction-name">${lm.name}</span>
                 <span class="attraction-dist">TARGET</span>
             </div>
@@ -1473,7 +1450,7 @@ class AntarikshAstra {
         });
     }
 
-    // ── LIVE WEATHER INTEL ──────────────────────────
+    // Î“Ã¶Ã‡Î“Ã¶Ã‡ LIVE WEATHER INTEL Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡
     async fetchWeather(lat, lng) {
         try {
             const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current_weather=true&hourly=relativehumidity_2m,visibility`;
@@ -1481,14 +1458,14 @@ class AntarikshAstra {
             const data = await res.json();
             const w = data.current_weather;
 
-            if (this.dom.weather_temp) this.dom.weather_temp.textContent = `${Math.round(w.temperature)}°C`;
+            if (this.dom.weather_temp) this.dom.weather_temp.textContent = `${Math.round(w.temperature)}â”¬â–‘C`;
             if (this.dom.weather_desc) this.dom.weather_desc.textContent = WEATHER_CODES[w.weathercode] || 'Atmospheric Clear';
             if (this.dom.weather_wind) this.dom.weather_wind.textContent = `${w.windspeed} KM/H`;
             if (this.dom.weather_humidity) this.dom.weather_humidity.textContent = `${data.hourly?.relativehumidity_2m?.[0] || 55}%`;
             if (this.dom.weather_vis) this.dom.weather_vis.textContent = `${Math.round((data.hourly?.visibility?.[0] || 10000) / 1000)} KM`;
         } catch (err) {
             console.warn('Weather intel fallback:', err);
-            if (this.dom.weather_temp) this.dom.weather_temp.textContent = '21°C';
+            if (this.dom.weather_temp) this.dom.weather_temp.textContent = '21â”¬â–‘C';
             if (this.dom.weather_desc) this.dom.weather_desc.textContent = 'Mainly Clear';
             if (this.dom.weather_wind) this.dom.weather_wind.textContent = '14 KM/H';
             if (this.dom.weather_humidity) this.dom.weather_humidity.textContent = '62%';
@@ -1496,7 +1473,7 @@ class AntarikshAstra {
         }
     }
 
-    // ── WIKIPEDIA INTEL DOSSIER ─────────────────────
+    // Î“Ã¶Ã‡Î“Ã¶Ã‡ WIKIPEDIA INTEL DOSSIER Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡
     async fetchWikipediaData(placeName) {
         try {
             const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(placeName)}`;
@@ -1559,7 +1536,7 @@ class AntarikshAstra {
         }
     }
 
-    // ── LIVE POPULATION & GEODETIC INTEL ───────────
+    // Î“Ã¶Ã‡Î“Ã¶Ã‡ LIVE POPULATION & GEODETIC INTEL Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡
     async fetchPopulation(placeName, country, lat, lng) {
         const cleanName = (placeName || '').toLowerCase().trim();
         const cleanCountry = (country || '').toLowerCase().trim();
@@ -1621,9 +1598,9 @@ class AntarikshAstra {
         return num.toLocaleString();
     }
 
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼
     // VOICE SEARCH (Web Speech API)
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼
     initVoice() {
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         if (!SpeechRecognition) {
@@ -1665,7 +1642,7 @@ class AntarikshAstra {
         };
 
         this.recognition.onerror = () => {
-            if (this.dom.voice_text) this.dom.voice_text.textContent = 'VOICE ERROR — RETRY';
+            if (this.dom.voice_text) this.dom.voice_text.textContent = 'VOICE ERROR Î“Ã‡Ã¶ RETRY';
             setTimeout(() => {
                 if (this.dom.voice_feedback) this.dom.voice_feedback.classList.add('hidden');
                 if (this.dom.voice_btn) this.dom.voice_btn.classList.remove('listening');
@@ -1689,9 +1666,9 @@ class AntarikshAstra {
         }
     }
 
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼
     // FAVORITES SYSTEM
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼
     loadFavorites() {
         try {
             this.favorites = JSON.parse(localStorage.getItem('antariksh-astra-favorites') || localStorage.getItem('jarvis-god-eye-favorites') || '[]');
@@ -1709,7 +1686,7 @@ class AntarikshAstra {
         if (idx >= 0) {
             this.favorites.splice(idx, 1);
             if (this.dom.fav_btn) {
-                this.dom.fav_btn.textContent = '☆';
+                this.dom.fav_btn.textContent = 'Î“Ã¿Ã¥';
                 this.dom.fav_btn.classList.remove('active');
             }
         } else {
@@ -1720,7 +1697,7 @@ class AntarikshAstra {
                 lng: loc.lng,
             });
             if (this.dom.fav_btn) {
-                this.dom.fav_btn.textContent = '★';
+                this.dom.fav_btn.textContent = 'Î“Ã¿Ã ';
                 this.dom.fav_btn.classList.add('active');
             }
             if (this.dom.bottom_panel) {
@@ -1743,7 +1720,7 @@ class AntarikshAstra {
     updateFavButtonState() {
         if (!this.dom.fav_btn || !this.currentLocation) return;
         const isFav = this.favorites.some(f => f.name.toLowerCase() === this.currentLocation.name.toLowerCase());
-        this.dom.fav_btn.textContent = isFav ? '★' : '☆';
+        this.dom.fav_btn.textContent = isFav ? 'Î“Ã¿Ã ' : 'Î“Ã¿Ã¥';
         this.dom.fav_btn.classList.toggle('active', isFav);
     }
 
@@ -1754,7 +1731,7 @@ class AntarikshAstra {
         if (this.dom.fav_count) this.dom.fav_count.textContent = this.favorites.length;
 
         if (this.favorites.length === 0) {
-            container.innerHTML = '<div class="no-favorites">No saved targets — search a location and click ☆</div>';
+            container.innerHTML = '<div class="no-favorites">No saved targets Î“Ã‡Ã¶ search a location and click Î“Ã¿Ã¥</div>';
             return;
         }
 
@@ -1762,7 +1739,7 @@ class AntarikshAstra {
             <div class="fav-card" data-index="${i}">
                 <div class="fav-card-name">${fav.name}</div>
                 <div class="fav-card-country">${fav.country}</div>
-                <button class="fav-card-remove" title="Remove" data-remove="${i}">✕</button>
+                <button class="fav-card-remove" title="Remove" data-remove="${i}">Î“Â£Ã²</button>
             </div>
         `).join('');
 
@@ -1789,9 +1766,9 @@ class AntarikshAstra {
         });
     }
 
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼
     // CLOCKS & INTEL TELEMETRY TIMERS
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼
     startClocks() {
         const update = () => {
             const now = new Date();
@@ -1852,9 +1829,9 @@ class AntarikshAstra {
         });
     }
 
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼
     // MAIN RAF ANIMATION LOOP
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼Î“Ã¶Ã¼
     animate() {
         requestAnimationFrame(() => this.animate());
 
@@ -1919,7 +1896,7 @@ class AntarikshAstra {
         }
     }
 
-    // TARGETING RETICLE PROJECTION ON SCREEN
+    // Î“Ã¶Ã‡Î“Ã¶Ã‡ TARGETING RETICLE PROJECTION ON SCREEN Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡Î“Ã¶Ã‡
     updateReticlePosition() {
         if (!this.locationMarker || !this.currentLocation || !this.dom.targeting_reticle) return;
 
@@ -1929,6 +1906,7 @@ class AntarikshAstra {
             CONFIG.earth.radius
         );
 
+        // Check if facing camera
         const camDir = this.camera.position.clone().normalize();
         const pointDir = pos.clone().normalize();
         const dot = camDir.dot(pointDir);
@@ -1938,81 +1916,77 @@ class AntarikshAstra {
             const x = (projected.x * 0.5 + 0.5) * window.innerWidth;
             const y = -(projected.y * 0.5 - 0.5) * window.innerHeight;
 
-            this.dom.targeting_reticle.style.left = $x + 'px';
-            this.dom.targeting_reticle.style.top = $y + 'px';
+            this.dom.targeting_reticle.style.left = `${x}px`;
+            this.dom.targeting_reticle.style.top = `${y}px`;
             this.dom.targeting_reticle.style.opacity = '1';
             this.dom.targeting_reticle.style.visibility = 'visible';
         } else {
             this.dom.targeting_reticle.style.opacity = '0';
         }
     }
-
-        initChatSandbox() {
-        this.chatSandbox = document.getElementById('ai-chat-sandbox');
+    // DRISHTI CHAT ASSISTANT
+    initChatSandbox() {
         this.chatHistory = document.getElementById('chat-history');
         this.chatInput = document.getElementById('chat-input');
         this.chatVoiceBtn = document.getElementById('chat-voice-btn');
         this.chatSendBtn = document.getElementById('chat-send-btn');
-        this.closeChatBtn = document.getElementById('close-chat');
         this.imgPopup = document.getElementById('image-popup-overlay');
         this.img1 = document.getElementById('popup-img-1');
         this.img2 = document.getElementById('popup-img-2');
         this.closePopupBtn = document.getElementById('close-popup');
-        
-        if(this.chatSandbox) {
-            setTimeout(() => {
-                this.chatSandbox.classList.remove('hidden');
-            }, 1500);
-            
-            this.closeChatBtn.addEventListener('click', () => this.chatSandbox.classList.add('hidden'));
-            this.closePopupBtn.addEventListener('click', () => this.imgPopup.classList.add('hidden'));
-            
+
+        if (this.chatInput) {
             this.chatSendBtn.addEventListener('click', () => this.handleChatQuery(this.chatInput.value));
             this.chatInput.addEventListener('keypress', (e) => {
-                if(e.key === 'Enter') {
-                    this.handleChatQuery(this.chatInput.value);
-                }
+                if (e.key === 'Enter') this.handleChatQuery(this.chatInput.value);
             });
-            
-            this.chatVoiceBtn.addEventListener('click', () => {
-                this.audio.playBeep(920, 0.05);
-                if(this.chatVoiceBtn.classList.contains('listening')) {
-                    this.recognition.stop();
-                    this.chatVoiceBtn.classList.remove('listening');
-                } else {
-                    this.recognition.start();
-                    this.chatVoiceBtn.classList.add('listening');
-                    this.chatInput.placeholder = "Listening...";
-                }
-            });
-            
-            if(this.recognition) {
+
+            if (this.chatVoiceBtn && this.recognition) {
+                this.chatVoiceBtn.addEventListener('click', () => {
+                    this.audio.playBeep(920, 0.05);
+                    if (this.chatVoiceBtn.classList.contains('listening')) {
+                        this.recognition.stop();
+                        this.chatVoiceBtn.classList.remove('listening');
+                    } else {
+                        this.recognition.start();
+                        this.chatVoiceBtn.classList.add('listening');
+                        this.chatInput.placeholder = "Listening...";
+                    }
+                });
+
                 const oldOnResult = this.recognition.onresult;
                 this.recognition.onresult = (event) => {
                     const query = event.results[0][0].transcript;
-                    if(this.chatVoiceBtn && this.chatVoiceBtn.classList.contains('listening')) {
+                    if (this.chatVoiceBtn && this.chatVoiceBtn.classList.contains('listening')) {
                         this.chatInput.value = query;
                         this.chatVoiceBtn.classList.remove('listening');
                         this.chatInput.placeholder = "Ask Drishti...";
                         this.handleChatQuery(query);
                     } else if (oldOnResult) {
-                        oldOnResult.call(this.recognition, event);
+                        oldOnResult.call(this, event);
                     }
                 };
+            }
+
+            if (this.closePopupBtn) {
+                this.closePopupBtn.addEventListener('click', () => {
+                    this.imgPopup.style.display = 'none';
+                });
             }
         }
     }
 
-    appendChatMsg(text, isAi=true) {
-        if(!this.chatHistory) return;
+    appendChatMsg(text, isAi = true) {
+        if (!this.chatHistory) return;
         const div = document.createElement('div');
         div.className = 'chat-msg ' + (isAi ? 'ai-msg' : 'user-msg');
+        div.style.cssText = isAi
+            ? 'align-self:flex-start; max-width:85%; padding:10px; border-radius:5px; font-size:13px; line-height:1.4; background:rgba(0,240,255,0.05); border-left:2px solid #00f0ff; color:#a0d8ef;'
+            : 'align-self:flex-end; max-width:85%; padding:10px; border-radius:5px; font-size:13px; line-height:1.4; background:rgba(255,107,0,0.1); border-right:2px solid #ff6b00; color:#ffd8a8;';
         div.textContent = text;
         this.chatHistory.appendChild(div);
         this.chatHistory.scrollTop = this.chatHistory.scrollHeight;
-        
-        if(isAi) {
-            // Text to speech
+        if (isAi) {
             const msg = new SpeechSynthesisUtterance(text);
             msg.rate = 1.05;
             msg.pitch = 0.9;
@@ -2022,82 +1996,68 @@ class AntarikshAstra {
 
     appendTraceLog(logObj) {
         const traceEl = document.getElementById('execution-trace-log');
-        if(!traceEl) return;
-        const currentText = traceEl.textContent;
-        const newLog = JSON.stringify(logObj, null, 2);
-        traceEl.textContent = currentText + "\n\n" + newLog;
+        if (!traceEl) return;
+        traceEl.textContent += "\n" + JSON.stringify(logObj, null, 2);
         traceEl.scrollTop = traceEl.scrollHeight;
     }
 
     async handleChatQuery(query) {
-        if(!query.trim()) return;
+        if (!query.trim()) return;
         this.appendChatMsg(query, false);
         this.chatInput.value = '';
-        
         this.audio.playSonar();
         const q = query.toLowerCase();
-        
-        if(q.includes('deforestation') || q.includes('change')) {
+
+        if (q.includes('deforestation') || q.includes('forest') || q.includes('change')) {
             this.setSystemStatus('ACTIVATING DRISHTI AGENTIC PIPELINE...');
-            this.appendTraceLog({ step_id: "DEF_01", module: "dofa_vlm_engine", action: "multimodal_reasoning", inputs: "cartosat_optical", timestamp: new Date().toISOString() });
-            
-            this.selectLocation(20.5937, 78.9629, "DEFORESTATION FRONT, INDIA", true);
-            
+            this.appendTraceLog({ step_id: "DEF_01", module: "dofa_vlm_engine", action: "multimodal_reasoning", sensor: "cartosat_optical", timestamp: new Date().toISOString() });
+            this.performSearch("Dehradun India");
             setTimeout(() => {
                 this.appendChatMsg("Analyzing bi-temporal optical pairs for deforestation front...");
                 this.appendTraceLog({ step_id: "DEF_02", module: "schema_validator", action: "verify_gsd", gsd_m: 0.65, status: "OK" });
-            }, 1000);
-            
+            }, 1500);
             setTimeout(() => {
-                this.appendChatMsg("Result: 2.4 sq km forest loss detected. Confidence 0.94. Displaying visual intel.");
-                this.showImagePopup("", "");
+                this.appendChatMsg("Result: 2.4 sq km forest loss detected near Dehradun. Confidence: 0.94. Displaying visual intel.");
+                this.showImagePopup();
                 this.dom.system_status_text.textContent = 'TASK COMPLETE';
-                this.appendTraceLog({ step_id: "DEF_03", module: "output_formatter", prediction: "2.4 sq km loss", trace_logged: true });
-            }, 4000);
+                this.appendTraceLog({ step_id: "DEF_03", module: "output_formatter", prediction: "2.4 sq km loss", confidence: 0.94, trace_logged: true });
+            }, 4500);
             return;
-        } 
-        
-        if (q.includes('sar') || q.includes('cartosat') || q.includes('fusion')) {
+        }
+
+        if (q.includes('sar') || q.includes('cartosat') || q.includes('fusion') || q.includes('construction')) {
             this.setSystemStatus('ACTIVATING DOFA SENSOR-AGNOSTIC ENCODER...');
-            this.appendTraceLog({ step_id: "SAR_01", module: "dofa_vlm_engine", action: "sensor_fusion", inputs: ["cartosat", "risat_sar_backscatter"], timestamp: new Date().toISOString() });
-            
-            this.selectLocation(28.6139, 77.2090, "RISAT-CARTOSAT ALIGNMENT, NEW DELHI", true);
-            
+            this.appendTraceLog({ step_id: "SAR_01", module: "dofa_vlm_engine", action: "sensor_fusion", inputs: ["cartosat", "risat_sar"], timestamp: new Date().toISOString() });
+            this.performSearch("New Delhi India");
             setTimeout(() => {
                 this.appendChatMsg("Cross-referencing Cartosat optical with RISAT SAR backscatter...");
-            }, 1000);
-            
+            }, 1500);
             setTimeout(() => {
-                this.appendChatMsg("Result: Unauthorized construction identified. Confidence 0.88. Displaying SAR fusion overlay.");
-                this.showImagePopup("", "");
+                this.appendChatMsg("Result: Unauthorized construction identified. Confidence: 0.88.");
+                this.showImagePopup();
                 this.dom.system_status_text.textContent = 'TASK COMPLETE';
                 this.appendTraceLog({ step_id: "SAR_02", module: "inference", prediction: "Unauthorized construction", confidence: 0.88 });
-            }, 4000);
+            }, 4500);
             return;
         }
 
         this.appendTraceLog({ step_id: "GEN_01", module: "search_sweep", query: query, timestamp: new Date().toISOString() });
-        this.appendChatMsg("Initiating global sweep and telemetry acquisition for: " + query + "...");
+        this.appendChatMsg("Initiating global sweep for: " + query + "...");
         this.performSearch(query);
     }
-    showImagePopup(img1Src, img2Src) {
-        if(!this.imgPopup) return;
-        this.img1.src = "https://placehold.co/400x300/040B14/00F0FF?text=CARTOSAT+OPTICAL+T0"; 
-        this.img2.src = "https://placehold.co/400x300/040B14/FF6B00?text=RISAT+SAR+FUSION+T1";
-        this.imgPopup.classList.remove('hidden');
-    }
 
-} // END OF ANTARIKSHA ASTRA CLASS
+    showImagePopup() {
+        if (!this.imgPopup) return;
+        this.imgPopup.style.display = 'block';
+    }
+}
 
 const JarvisGodEye = AntarikshAstra;
 
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// LAUNCH APPLICATION
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 document.addEventListener('DOMContentLoaded', () => {
     window.astraApp = new AntarikshAstra();
     window.jarvisApp = window.astraApp;
 });
-
-
-
-
-
-

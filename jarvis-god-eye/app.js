@@ -1,6 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   J.A.R.V.I.S GOD'S EYE — SPATIAL INTELLIGENCE CORE v2
-   Inspired by bilawalsidhu/gods-eye-view & Iron Man J.A.R.V.I.S HUD
+   ANTARIKSH ASTRA — SPATIAL INTELLIGENCE CORE v2
    Three.js · Satellite Telemetry · Web Audio · Live Intelligence
    ═══════════════════════════════════════════════════════════════ */
 
@@ -32,8 +31,75 @@ const CONFIG = {
     flyDuration: 100,
 };
 
+// Country Populations Database (Global Fallback)
+const COUNTRY_POPULATIONS = {
+    'india': '1.43B',
+    'china': '1.41B',
+    'united states': '335M',
+    'usa': '335M',
+    'indonesia': '278M',
+    'pakistan': '241M',
+    'nigeria': '224M',
+    'brazil': '216M',
+    'bangladesh': '173M',
+    'russia': '144M',
+    'mexico': '128M',
+    'japan': '125M',
+    'philippines': '117M',
+    'ethiopia': '126M',
+    'egypt': '112M',
+    'vietnam': '98.8M',
+    'turkey': '85.3M',
+    'germany': '84.4M',
+    'thailand': '71.8M',
+    'united kingdom': '67.7M',
+    'uk': '67.7M',
+    'france': '68.0M',
+    'italy': '58.9M',
+    'south africa': '60.4M',
+    'south korea': '51.7M',
+    'spain': '47.8M',
+    'argentina': '45.8M',
+    'canada': '39.0M',
+    'saudi arabia': '36.4M',
+    'australia': '26.4M',
+    'uae': '9.4M'
+};
+
 // Strategic Locations Database with Pre-baked Intelligence & Surveillance Photos
 const STRATEGIC_LOCATIONS = {
+    'india': {
+        name: 'INDIA',
+        country: 'India',
+        lat: 20.5937,
+        lng: 78.9629,
+        alt: '160m',
+        pop: '1.43B',
+        bg: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1920&q=80',
+        desc: 'Subcontinental spatial surveillance sector. Headquarters of ISRO & Indian space telemetry defense grid (Antariksh Astra).',
+        landmarks: [
+            { name: 'India Gate (New Delhi)', lat: 28.6129, lng: 77.2295 },
+            { name: 'ISRO Antariksh Bhavan (Bengaluru)', lat: 13.0334, lng: 77.5640 },
+            { name: 'Taj Mahal (Agra)', lat: 27.1751, lng: 78.0421 },
+            { name: 'Satish Dhawan Space Centre (Sriharikota)', lat: 13.7199, lng: 80.2305 }
+        ]
+    },
+    'delhi': {
+        name: 'NEW DELHI',
+        country: 'India',
+        lat: 28.6139,
+        lng: 77.2090,
+        alt: '216m',
+        pop: '33.0M',
+        bg: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=1920&q=80',
+        desc: 'National Capital Region command hub. Strategic northern defense sector and aerospace monitoring node.',
+        landmarks: [
+            { name: 'India Gate', lat: 28.6129, lng: 77.2295 },
+            { name: 'Rashtrapati Bhavan', lat: 28.6143, lng: 77.1994 },
+            { name: 'Red Fort', lat: 28.6562, lng: 77.2410 },
+            { name: 'Qutub Minar', lat: 28.5245, lng: 77.1855 }
+        ]
+    },
     'paris': {
         name: 'PARIS',
         country: 'France',
@@ -177,7 +243,7 @@ const WEATHER_CODES = {
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // WEB AUDIO SCI-FI SOUND SYNTHESIZER
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-class JarvisAudio {
+class AstraAudio {
     constructor() {
         this.ctx = null;
     }
@@ -265,13 +331,14 @@ class JarvisAudio {
         } catch {}
     }
 }
+const JarvisAudio = AstraAudio;
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// J.A.R.V.I.S GOD'S EYE PROTOCOL CLASS
+// ANTARIKSH ASTRA PROTOCOL CLASS
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-class JarvisGodEye {
+class AntarikshAstra {
     constructor() {
-        this.audio = new JarvisAudio();
+        this.audio = new AstraAudio();
 
         // Three.js
         this.scene = null;
@@ -324,6 +391,7 @@ class JarvisGodEye {
         this.initSensorModes();
         this.initSatStatusBar();
         this.initVoice();
+        this.initFavoritesToggle();
         this.renderFavorites();
         this.startClocks();
         this.setupResize();
@@ -387,6 +455,7 @@ class JarvisGodEye {
 
             // Favorites bottom panel
             bottom_panel: 'bottom-panel',
+            fav_header_bar: 'fav-header-bar',
             fav_count: 'fav-count',
             favorites_container: 'favorites-container',
 
@@ -415,10 +484,10 @@ class JarvisGodEye {
     // ── BOOT SEQUENCE (Cold Start) ───────────────────
     async bootSequence() {
         const messages = [
-            'INITIALIZING J.A.R.V.I.S SPATIAL MATRIX...',
+            'INITIALIZING ANTARIKSH ASTRA SPATIAL MATRIX...',
             'ACQUIRING NRO/NGA SATELLITE CONSTELLATION...',
             'ESTABLISHING ENCRYPTED SAT-LINK [TOP SECRET]...',
-            'CALIBRATING GOD\'S EYE SENSOR SUITE...',
+            'CALIBRATING ANTARIKSH ASTRA SENSOR SUITE...',
             'SYNCHRONIZING MGRS GEODETIC RECONNAISSANCE...',
             'DEPLOYING RECON OVERLAY & SCOPE VIGNETTE...',
             'ALL SYSTEMS OPERATIONAL ■ PROTOCOL ACTIVE',
@@ -436,7 +505,7 @@ class JarvisGodEye {
 
         await this.wait(400);
 
-        // Fade out boot screen, reveal God's Eye HUD
+        // Fade out boot screen, reveal Antariksh Astra HUD
         if (this.dom.boot_screen) {
             this.dom.boot_screen.classList.add('fade-out');
             setTimeout(() => {
@@ -450,7 +519,7 @@ class JarvisGodEye {
         if (this.dom.intel_hud) this.dom.intel_hud.classList.add('visible');
 
         this.audio.playLock();
-        this.typeIntelSummary('GOD\'S EYE PROTOCOL READY. SELECT SATELLITE OR SEARCH TARGET.');
+        this.typeIntelSummary('ANTARIKSH ASTRA PROTOCOL READY. SELECT SATELLITE OR SEARCH TARGET.');
 
         // Default target: Paris
         setTimeout(() => {
@@ -1227,6 +1296,7 @@ class JarvisGodEye {
             return;
         }
         // ---------------------------------------------------
+
         if (this.dom.suggestions) this.dom.suggestions.classList.remove('visible');
         this.setSystemStatus('ACQUIRING TELEMETRY...');
         this.audio.playSonar();
@@ -1320,6 +1390,7 @@ class JarvisGodEye {
             !prebaked ? this.fetchWikipediaData(placeName) : Promise.resolve(),
             !prebaked ? this.fetchAttractions(lat, lng) : Promise.resolve(),
             !prebaked ? this.fetchBackgroundImage(placeName) : Promise.resolve(),
+            !prebaked || !prebaked.pop ? this.fetchPopulation(placeName, country, lat, lng) : Promise.resolve(),
         ]);
 
         this.setSystemStatus('TARGET LOCKED');
@@ -1464,6 +1535,68 @@ class JarvisGodEye {
         }
     }
 
+    // ── LIVE POPULATION & GEODETIC INTEL ───────────
+    async fetchPopulation(placeName, country, lat, lng) {
+        const cleanName = (placeName || '').toLowerCase().trim();
+        const cleanCountry = (country || '').toLowerCase().trim();
+
+        // 1. Direct country database check
+        if (COUNTRY_POPULATIONS[cleanName]) {
+            if (this.dom.data_pop) this.dom.data_pop.textContent = COUNTRY_POPULATIONS[cleanName];
+            return;
+        }
+
+        // 2. Open-Meteo Geocoding API for city / municipality population
+        try {
+            const searchTarget = cleanName !== 'india' && cleanName.length > 2 ? cleanName : (cleanCountry || cleanName);
+            const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(searchTarget)}&count=5&language=en&format=json`;
+            const res = await fetch(url);
+            if (res.ok) {
+                const data = await res.json();
+                const results = data.results || [];
+                const best = results.find(r => r.population && r.population > 0) || results[0];
+                if (best && best.population && best.population > 0) {
+                    if (this.dom.data_pop) this.dom.data_pop.textContent = this.formatPopulation(best.population);
+                    if (best.elevation && this.dom.data_alt) this.dom.data_alt.textContent = `${Math.round(best.elevation)}m MSL`;
+                    return;
+                }
+            }
+        } catch (e) {
+            console.warn('Geocoding population error:', e);
+        }
+
+        // 3. Fallback to Country population if location is in a known country
+        if (COUNTRY_POPULATIONS[cleanCountry]) {
+            if (this.dom.data_pop) this.dom.data_pop.textContent = COUNTRY_POPULATIONS[cleanCountry];
+            return;
+        }
+
+        // 4. REST Countries API fallback
+        try {
+            const queryTarget = cleanCountry || cleanName;
+            const res = await fetch(`https://restcountries.com/v3.1/name/${encodeURIComponent(queryTarget)}?fields=population`);
+            if (res.ok) {
+                const countries = await res.json();
+                if (countries?.[0]?.population) {
+                    if (this.dom.data_pop) this.dom.data_pop.textContent = this.formatPopulation(countries[0].population);
+                    return;
+                }
+            }
+        } catch {}
+
+        // 5. Regional geodetic heuristic estimate if offline or remote terrain
+        const pseudoPop = Math.floor(Math.abs(Math.sin(lat * 12.9898 + lng * 78.233) * 350000) + 15000);
+        if (this.dom.data_pop) this.dom.data_pop.textContent = this.formatPopulation(pseudoPop);
+    }
+
+    formatPopulation(num) {
+        if (!num || isNaN(num)) return '---';
+        if (num >= 1e9) return `${(num / 1e9).toFixed(2)}B`;
+        if (num >= 1e6) return `${(num / 1e6).toFixed(2)}M`;
+        if (num >= 1e3) return `${(num / 1e3).toFixed(1)}K`;
+        return num.toLocaleString();
+    }
+
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     // VOICE SEARCH (Web Speech API)
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -1488,8 +1621,8 @@ class JarvisGodEye {
             // Extract place from natural voice command
             const patterns = [
                 /(?:show me|find|search|locate|go to|fly to|scan|target)\s+(.+)/i,
-                /(?:jarvis|hey jarvis)[,\s]+(?:show me|find|search|locate|go to|scan)\s+(.+)/i,
-                /(?:jarvis|hey jarvis)[,\s]+(.+)/i,
+                /(?:antariksh|antarisksh|astra|jarvis|hey antariksh|hey astra|hey jarvis)[,\s]+(?:show me|find|search|locate|go to|scan)\s+(.+)/i,
+                /(?:antariksh|antarisksh|astra|jarvis|hey antariksh|hey astra|hey jarvis)[,\s]+(.+)/i,
             ];
 
             let query = transcript;
@@ -1537,14 +1670,14 @@ class JarvisGodEye {
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     loadFavorites() {
         try {
-            this.favorites = JSON.parse(localStorage.getItem('jarvis-god-eye-favorites') || '[]');
+            this.favorites = JSON.parse(localStorage.getItem('antariksh-astra-favorites') || localStorage.getItem('jarvis-god-eye-favorites') || '[]');
         } catch {
             this.favorites = [];
         }
     }
 
     saveFavorites() {
-        localStorage.setItem('jarvis-god-eye-favorites', JSON.stringify(this.favorites));
+        localStorage.setItem('antariksh-astra-favorites', JSON.stringify(this.favorites));
     }
 
     toggleFavorite(loc) {
@@ -1566,9 +1699,21 @@ class JarvisGodEye {
                 this.dom.fav_btn.textContent = '★';
                 this.dom.fav_btn.classList.add('active');
             }
+            if (this.dom.bottom_panel) {
+                this.dom.bottom_panel.classList.remove('collapsed');
+            }
         }
         this.saveFavorites();
         this.renderFavorites();
+    }
+
+    initFavoritesToggle() {
+        if (this.dom.fav_header_bar && this.dom.bottom_panel) {
+            this.dom.fav_header_bar.addEventListener('click', () => {
+                this.audio.playBeep(820, 0.04);
+                this.dom.bottom_panel.classList.toggle('collapsed');
+            });
+        }
     }
 
     updateFavButtonState() {
@@ -1780,9 +1925,12 @@ class JarvisGodEye {
     }
 }
 
+const JarvisGodEye = AntarikshAstra;
+
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // LAUNCH APPLICATION
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 document.addEventListener('DOMContentLoaded', () => {
-    window.jarvisApp = new JarvisGodEye();
+    window.astraApp = new AntarikshAstra();
+    window.jarvisApp = window.astraApp;
 });

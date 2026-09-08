@@ -1249,53 +1249,76 @@ class AntarikshAstra {
     async performSearch(query) {
         if (!query) return;
 
-        // --- ISRO SATQUERY "WIZARD OF OZ" DEMO OVERRIDES ---
+        if (this.dom.suggestions) this.dom.suggestions.classList.remove('visible');
+        this.setSystemStatus('ACTIVATING DRISHTI AGENTIC PIPELINE...');
+        this.audio.playSonar();
+
+        // --- ATTEMPT TO HIT LIVE BACKEND (The Real Jarvis) ---
+        try {
+            const response = await fetch('http://localhost:8000/api/query', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query: query })
+            });
+            
+            if (response.ok) {
+                const data = await response.json();
+                this.audio.playLock();
+                this.selectLocation(data.lat, data.lng, data.target_name, true);
+                
+                setTimeout(() => {
+                    this.typeIntelSummary(data.trace);
+                    this.dom.system_status_text.textContent = 'ANALYZING TELEMETRY';
+                }, 500);
+                
+                setTimeout(() => {
+                    this.typeIntelSummary(data.result);
+                    this.audio.playLock();
+                    this.dom.system_status_text.textContent = 'TASK COMPLETE';
+                }, 4000);
+                
+                return; // Exit here if backend succeeds
+            }
+        } catch (error) {
+            console.warn('Backend unreachable. Falling back to Wizard of Oz Demo Mode...');
+        }
+
+        // --- ISRO SATQUERY "WIZARD OF OZ" DEMO OVERRIDES (Fallback) ---
         const demoQuery = query.toLowerCase();
         
         if (demoQuery.includes("deforestation") || demoQuery.includes("change")) {
-            if (this.dom.suggestions) this.dom.suggestions.classList.remove('visible');
             this.setSystemStatus('ACTIVATING DRISHTI AGENTIC PIPELINE...');
             this.audio.playLock();
-            
-            // Fly to India coordinates
             this.selectLocation(20.5937, 78.9629, "DEFORESTATION FRONT, INDIA", true);
-            
-            // Override the intel summary after a slight delay
             setTimeout(() => {
                 this.typeIntelSummary("EXECUTING TRACE: VLM_ENCODER -> CHANGE_DETECTION -> MASKING...");
                 this.dom.system_status_text.textContent = 'ANALYZING BI-TEMPORAL PAIR';
             }, 1000);
-            
             setTimeout(() => {
                 this.typeIntelSummary("RESULT: 2.4 KM² FOREST LOSS DETECTED. CONFIDENCE: 0.94. TRACE LOGGED.");
                 this.audio.playLock();
                 this.dom.system_status_text.textContent = 'TASK COMPLETE';
             }, 5000);
-            
             return;
         }
 
         if (demoQuery.includes("sar") || demoQuery.includes("cartosat") || demoQuery.includes("fusion")) {
-            if (this.dom.suggestions) this.dom.suggestions.classList.remove('visible');
             this.setSystemStatus('ACTIVATING DOFA SENSOR-AGNOSTIC ENCODER...');
             this.audio.playLock();
-            
             this.selectLocation(28.6139, 77.2090, "RISAT-CARTOSAT ALIGNMENT, NEW DELHI", true);
-            
             setTimeout(() => {
                 this.typeIntelSummary("EXECUTING TRACE: DOFA_SENSOR_ALIGNMENT -> SAR_OPTICAL_FUSION...");
                 this.dom.system_status_text.textContent = 'CROSS-MODAL ANALYSIS';
             }, 1000);
-            
             setTimeout(() => {
                 this.typeIntelSummary("RESULT: UNAUTHORIZED CONSTRUCTION IDENTIFIED. CONFIDENCE: 0.88. TRACE LOGGED.");
                 this.audio.playLock();
                 this.dom.system_status_text.textContent = 'TASK COMPLETE';
             }, 5000);
-            
             return;
         }
         // ---------------------------------------------------
+
 
         if (this.dom.suggestions) this.dom.suggestions.classList.remove('visible');
         this.setSystemStatus('ACQUIRING TELEMETRY...');

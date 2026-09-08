@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANTARIKSH ASTRA ΓÇö Spatial Intelligence Protocol</title>
+    <title>ANTARIKSH ASTRA — Spatial Intelligence Protocol</title>
     <meta name="description" content="Cinematic satellite surveillance interface with 3D globe, live intelligence overlays, and voice-activated search. Antariksh Astra Protocol.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,77 +20,77 @@
     </script>
 </head>
 <body>
-    <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ BOOT SCREEN ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+    <!-- ═══════ BOOT SCREEN ═══════ -->
     <div id="boot-screen">
         <div class="boot-grid"></div>
         <div class="boot-content">
             <div class="boot-logo">ANTARIKSH ASTRA</div>
-            <div class="boot-subtitle">Spatial Intelligence Protocol ┬╖ No Place Left Behind</div>
+            <div class="boot-subtitle">Spatial Intelligence Protocol · No Place Left Behind</div>
             <div class="boot-text" id="boot-text">INITIALIZING CORE SYSTEMS...</div>
             <div class="boot-progress"><div class="boot-progress-bar" id="boot-progress"></div></div>
-            <div class="boot-version">BUILD 2026.09 ┬╖ SPATIAL INTELLIGENCE UNIT</div>
+            <div class="boot-version">BUILD 2026.09 · SPATIAL INTELLIGENCE UNIT</div>
         </div>
     </div>
 
-    <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ 3D SCENE ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+    <!-- ═══════ 3D SCENE ═══════ -->
     <div id="scene-container"></div>
 
-    <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ SURVEILLANCE BACKGROUND ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+    <!-- ═══════ SURVEILLANCE BACKGROUND ═══════ -->
     <div id="bg-image"></div>
 
-    <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ SCOPE MASK (circular vignette) ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+    <!-- ═══════ SCOPE MASK (circular vignette) ═══════ -->
     <div id="scope-mask"></div>
 
-    <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ HUD GRID ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+    <!-- ═══════ HUD GRID ═══════ -->
     <div id="hud-grid"></div>
 
-    <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ POST-FX OVERLAY (CRT/NVG/FLIR) ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+    <!-- ═══════ POST-FX OVERLAY (CRT/NVG/FLIR) ═══════ -->
     <div id="postfx-overlay"></div>
 
-    <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ INTEL HUD OVERLAY (Military readouts) ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+    <!-- ═══════ INTEL HUD OVERLAY (Military readouts) ═══════ -->
     <div id="intel-hud">
         <div class="intel-corner intel-top-left">
-            <div class="intel-bracket">Γöî</div>
+            <div class="intel-bracket">┌</div>
             <div class="intel-classification">TOP SECRET // SI-TK // NOFORN</div>
             <div class="intel-system" id="intel-mission">KH11-4217 OPS-4150</div>
             <div class="intel-mode" id="intel-mode">NORMAL</div>
         </div>
         <div class="intel-corner intel-top-right">
-            <div class="intel-rec"><span class="intel-rec-dot">ΓùÅ</span> REC <span class="intel-timestamp" id="intel-timestamp">2026-01-01 00:00:00Z</span></div>
+            <div class="intel-rec"><span class="intel-rec-dot">●</span> REC <span class="intel-timestamp" id="intel-timestamp">2026-01-01 00:00:00Z</span></div>
             <div class="intel-orbital" id="intel-orbital">ORB: 47521 PASS: DESC-217</div>
-            <div class="intel-bracket" style="text-align:right">ΓöÉ</div>
+            <div class="intel-bracket" style="text-align:right">┐</div>
         </div>
         <div class="intel-corner intel-bottom-left">
-            <div class="intel-bracket">Γöö</div>
+            <div class="intel-bracket">└</div>
             <div id="intel-mgrs">MGRS: ---</div>
-            <div id="intel-latlon">--┬░--'--"N ---┬░--'--"W</div>
+            <div id="intel-latlon">--°--'--"N ---°--'--"W</div>
         </div>
         <div class="intel-corner intel-bottom-right">
             <div id="intel-gsd">GSD: --m NIIRS: --</div>
-            <div id="intel-alt">ALT: --m SUN: --┬░ EL</div>
-            <div class="intel-bracket" style="text-align:right">Γöÿ</div>
+            <div id="intel-alt">ALT: --m SUN: --° EL</div>
+            <div class="intel-bracket" style="text-align:right">┘</div>
         </div>
-        <div class="intel-edge intel-left-edge">ANTARIKSH ASTRA FEED ΓÇö LIVE TELEMETRY</div>
-        <div class="intel-edge intel-right-edge">SPATIAL INTELLIGENCE ┬╖ ANTARIKSH ASTRA PROTOCOL</div>
+        <div class="intel-edge intel-left-edge">ANTARIKSH ASTRA FEED — LIVE TELEMETRY</div>
+        <div class="intel-edge intel-right-edge">SPATIAL INTELLIGENCE · ANTARIKSH ASTRA PROTOCOL</div>
         <div class="intel-summary-bar" id="intel-summary">AWAITING TELEMETRY...</div>
     </div>
 
-    <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ SCAN OVERLAY ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+    <!-- ═══════ SCAN OVERLAY ═══════ -->
     <div id="scan-overlay"><div class="scan-line"></div><div class="scan-flash"></div></div>
 
-    <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ CORNER BRACKETS ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+    <!-- ═══════ CORNER BRACKETS ═══════ -->
     <div class="corner-bracket top-left"></div>
     <div class="corner-bracket top-right"></div>
     <div class="corner-bracket bottom-left"></div>
     <div class="corner-bracket bottom-right"></div>
 
-    <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ MAIN HUD ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+    <!-- ═══════ MAIN HUD ═══════ -->
     <div id="hud">
         <!-- HEADER -->
         <header id="header">
             <div class="header-left">
                 <div class="logo">
-                    <span class="logo-diamond">Γùå</span>
+                    <span class="logo-diamond">◆</span>
                     <span class="logo-text">ANTARIKSH ASTRA</span>
                 </div>
                 <span class="logo-subtitle">NO PLACE LEFT BEHIND</span>
@@ -153,11 +153,11 @@
             <div class="data-card">
                 <div class="card-header">
                     <span class="card-icon material-symbols-outlined">cloud</span> WEATHER INTEL
-                    <button class="fav-btn" id="fav-btn" title="Add to favorites">Γÿå</button>
+                    <button class="fav-btn" id="fav-btn" title="Add to favorites">☆</button>
                 </div>
                 <div class="card-body">
                     <div class="weather-main">
-                        <span class="weather-temp" id="weather-temp">--┬░</span>
+                        <span class="weather-temp" id="weather-temp">--°</span>
                         <span class="weather-desc" id="weather-desc">--</span>
                     </div>
                     <div class="data-row"><span class="data-label">WIND</span><span class="data-value" id="weather-wind">--</span></div>
@@ -183,21 +183,21 @@
             </div>
         </div>
 
-        <!-- BOTTOM PANEL - DRISHTI AI ASSISTANT -->
+        <!-- BOTTOM PANEL — DRISHTI AI ASSISTANT -->
         <div id="bottom-panel" class="collapsed">
             <div class="panel-header-bar" id="fav-header-bar" title="Click to expand / collapse Assistant">
                 <span class="material-symbols-outlined" style="font-size:14px;color:rgba(0,240,255,0.8)">psychology</span>
                 DRISHTI SPATIAL AI
                 <span class="material-symbols-outlined fav-chevron" id="fav-chevron">expand_more</span>
             </div>
-            <div id="favorites-container" style="padding:0; display:flex; flex-direction:column; height: 350px;">
-                <div id="chat-history" style="flex:1; overflow-y:auto; padding:15px; display:flex; flex-direction:column; gap:12px;">
-                    <div class="chat-msg ai-msg">System Online. Drishti Assistant ready. Ask me about any location, deforestation, or SAR analysis.</div>
+            <div id="favorites-container" style="padding:0; display:flex; flex-direction:column; max-height: 300px;">
+                <div id="chat-history" style="flex:1; overflow-y:auto; padding:12px; display:flex; flex-direction:column; gap:10px; min-height:100px;">
+                    <div class="chat-msg ai-msg" style="align-self:flex-start; max-width:85%; padding:8px; border-radius:5px; font-size:12px; background:rgba(0,240,255,0.05); border-left:2px solid #00f0ff; color:#a0d8ef;">System Online. Ask me about deforestation, SAR analysis, or any location.</div>
                 </div>
-                <div style="display:flex; padding:10px; border-top:1px solid rgba(0,240,255,0.2); gap:10px;">
-                    <button id="chat-voice-btn" style="background:rgba(0,240,255,0.1); border:1px solid rgba(0,240,255,0.5); color:#00f0ff; cursor:pointer; border-radius:4px; width:35px; display:flex; align-items:center; justify-content:center;"><span class="material-symbols-outlined">mic</span></button>
-                    <input type="text" id="chat-input" placeholder="Ask Drishti..." autocomplete="off" style="flex:1; background:transparent; border:1px solid rgba(0,240,255,0.3); color:#00f0ff; padding:8px 12px; border-radius:4px; font-family:'JetBrains Mono',monospace;">
-                    <button id="chat-send-btn" style="background:rgba(0,240,255,0.1); border:1px solid rgba(0,240,255,0.5); color:#00f0ff; cursor:pointer; border-radius:4px; width:35px; display:flex; align-items:center; justify-content:center;"><span class="material-symbols-outlined">send</span></button>
+                <div style="display:flex; padding:8px; border-top:1px solid rgba(0,240,255,0.2); gap:8px;">
+                    <button id="chat-voice-btn" style="background:rgba(0,240,255,0.1); border:1px solid rgba(0,240,255,0.5); color:#00f0ff; cursor:pointer; border-radius:4px; width:32px; height:32px; display:flex; align-items:center; justify-content:center;"><span class="material-symbols-outlined" style="font-size:16px">mic</span></button>
+                    <input type="text" id="chat-input" placeholder="Ask Drishti..." autocomplete="off" style="flex:1; background:transparent; border:1px solid rgba(0,240,255,0.3); color:#00f0ff; padding:6px 10px; border-radius:4px; font-family:'JetBrains Mono',monospace; font-size:12px;">
+                    <button id="chat-send-btn" style="background:rgba(0,240,255,0.1); border:1px solid rgba(0,240,255,0.5); color:#00f0ff; cursor:pointer; border-radius:4px; width:32px; height:32px; display:flex; align-items:center; justify-content:center;"><span class="material-symbols-outlined" style="font-size:16px">send</span></button>
                 </div>
             </div>
         </div>
@@ -221,7 +221,7 @@
         </div>
     </div>
 
-    <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ TARGETING RETICLE ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+    <!-- ═══════ TARGETING RETICLE ═══════ -->
     <div id="targeting-reticle" class="hidden">
         <div class="reticle-outer">
             <div class="reticle-outer"></div>
@@ -236,7 +236,7 @@
         <div class="reticle-label" id="reticle-label">ACQUIRING...</div>
     </div>
 
-    <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ VOICE FEEDBACK ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+    <!-- ═══════ VOICE FEEDBACK ═══════ -->
     <div id="voice-feedback" class="hidden">
         <div class="voice-rings">
             <div class="voice-ring r1"></div>
@@ -246,37 +246,37 @@
         <div class="voice-text">LISTENING...</div>
     </div>
 
-    <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ SATELLITE HOVER TELEMETRY TOOLTIP ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+    <!-- ═══════ SATELLITE HOVER TELEMETRY TOOLTIP ═══════ -->
     <div id="sat-tooltip" class="sat-tooltip hidden">
         <div class="sat-tt-header">
-            <span class="sat-tt-dot">ΓùÅ</span>
+            <span class="sat-tt-dot">●</span>
             <span class="sat-tt-name" id="sat-tt-name">SAT-01 TITAN</span>
             <span class="sat-tt-type" id="sat-tt-type">KH-11 OPTICAL</span>
         </div>
         <div class="sat-tt-body">
             <div class="sat-tt-row"><span>ALTITUDE</span><span id="sat-tt-alt">542 KM</span></div>
             <div class="sat-tt-row"><span>VELOCITY</span><span id="sat-tt-vel">7.64 KM/S</span></div>
-            <div class="sat-tt-row"><span>INCLINATION</span><span id="sat-tt-inc">97.4┬░ SSO</span></div>
+            <div class="sat-tt-row"><span>INCLINATION</span><span id="sat-tt-inc">97.4° SSO</span></div>
             <div class="sat-tt-row"><span>DOWNLINK</span><span id="sat-tt-status" class="status-locked">LOCKED 99.8%</span></div>
         </div>
     </div>
 
     <!-- IMAGE POPUP OVERLAY -->
-    <div id="image-popup-overlay" style="display:none; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:800px; background:rgba(4,11,20,0.95); border:2px solid #00f0ff; border-radius:8px; z-index:100; backdrop-filter:blur(10px); box-shadow:0 0 40px rgba(0,240,255,0.2);">
-        <div style="padding:15px; text-align:center; border-bottom:1px solid #00f0ff; color:#00f0ff; font-family:'JetBrains Mono',monospace; font-size:16px; letter-spacing:2px;">SATELLITE INTEL // BI-TEMPORAL ANALYSIS</div>
-        <div style="display:flex; padding:20px; gap:20px;">
+    <div id="image-popup-overlay" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); width:750px; background:rgba(4,11,20,0.95); border:2px solid #00f0ff; border-radius:8px; z-index:100; backdrop-filter:blur(10px); box-shadow:0 0 40px rgba(0,240,255,0.2);">
+        <div style="padding:12px; text-align:center; border-bottom:1px solid #00f0ff; color:#00f0ff; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:2px;">SATELLITE INTEL // BI-TEMPORAL ANALYSIS</div>
+        <div style="display:flex; padding:15px; gap:15px;">
             <div style="flex:1; display:flex; flex-direction:column; align-items:center;">
-                <span style="color:#fff; margin-bottom:10px; font-size:12px; letter-spacing:1px;">T0 - PREVIOUS YEAR</span>
-                <img id="popup-img-1" src="https://placehold.co/400x300/040B14/00F0FF?text=CARTOSAT+OPTICAL+T0" style="width:100%; border:1px solid rgba(0,240,255,0.4); border-radius:4px;" alt="Previous Year">
+                <span style="color:#fff; margin-bottom:8px; font-size:11px; letter-spacing:1px;">T0 - PREVIOUS YEAR</span>
+                <img id="popup-img-1" src="https://placehold.co/350x250/040B14/00F0FF?text=CARTOSAT+OPTICAL+T0" style="width:100%; border:1px solid rgba(0,240,255,0.4); border-radius:4px;" alt="Previous Year">
             </div>
             <div style="flex:1; display:flex; flex-direction:column; align-items:center;">
-                <span style="color:#fff; margin-bottom:10px; font-size:12px; letter-spacing:1px;">T1 - CURRENT (ANALYZED)</span>
-                <img id="popup-img-2" src="https://placehold.co/400x300/040B14/FF6B00?text=RISAT+SAR+FUSION+T1" style="width:100%; border:1px solid rgba(0,240,255,0.4); border-radius:4px;" alt="Current Year">
+                <span style="color:#fff; margin-bottom:8px; font-size:11px; letter-spacing:1px;">T1 - CURRENT (ANALYZED)</span>
+                <img id="popup-img-2" src="https://placehold.co/350x250/040B14/FF6B00?text=CHANGE+DETECTED+T1" style="width:100%; border:1px solid rgba(0,240,255,0.4); border-radius:4px;" alt="Current Year">
             </div>
         </div>
-        <button id="close-popup" style="display:block; margin:0 20px 20px 20px; padding:10px; width:calc(100% - 40px); background:rgba(0,240,255,0.1); border:1px solid #00f0ff; color:#00f0ff; cursor:pointer; font-family:'JetBrains Mono',monospace;">DISMISS</button>
+        <button id="close-popup" style="display:block; margin:0 15px 15px 15px; padding:8px; width:calc(100% - 30px); background:rgba(0,240,255,0.1); border:1px solid #00f0ff; color:#00f0ff; cursor:pointer; font-family:'JetBrains Mono',monospace; font-size:12px;">DISMISS</button>
     </div>
 
-    <script type="module" src="app.js?v=4"></script>
+    <script type="module" src="app.js?v=5"></script>
 </body>
 </html>

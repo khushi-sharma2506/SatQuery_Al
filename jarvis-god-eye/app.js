@@ -2027,28 +2027,45 @@ class AntarikshAstra {
         
         this.audio.playSonar();
         
-        // Demo specific responses for the Hackathon
         const q = query.toLowerCase();
-        setTimeout(() => {
-            if(q.includes('deforestation') || q.includes('change')) {
+        
+        // If they ask for deforestation, zoom to India and pop images
+        if(q.includes('deforestation') || q.includes('change')) {
+            this.setSystemStatus('ACTIVATING DRISHTI AGENTIC PIPELINE...');
+            this.selectLocation(20.5937, 78.9629, "DEFORESTATION FRONT, INDIA", true);
+            
+            setTimeout(() => {
                 this.appendChatMsg("Analyzing bi-temporal optical pairs for deforestation front...");
-                setTimeout(() => {
-                    this.appendChatMsg("Result: 2.4 sq km forest loss detected. Confidence 0.94. Displaying visual intel.");
-                    this.showImagePopup(
-                        "https://earthobservatory.nasa.gov/images/145980/brazil-deforestation", 
-                        "https://earthobservatory.nasa.gov/images/145980/brazil-deforestation"
-                    ); // Replace with real placeholders if needed, or leave blank to show borders
-                }, 3000);
-            } else if (q.includes('sar') || q.includes('cartosat') || q.includes('fusion')) {
+            }, 1000);
+            
+            setTimeout(() => {
+                this.appendChatMsg("Result: 2.4 sq km forest loss detected. Confidence 0.94. Displaying visual intel.");
+                this.showImagePopup("", "");
+                this.dom.system_status_text.textContent = 'TASK COMPLETE';
+            }, 4000);
+            return;
+        } 
+        
+        // If they ask for SAR/Cartosat, zoom to Delhi and pop images
+        if (q.includes('sar') || q.includes('cartosat') || q.includes('fusion')) {
+            this.setSystemStatus('ACTIVATING DOFA SENSOR-AGNOSTIC ENCODER...');
+            this.selectLocation(28.6139, 77.2090, "RISAT-CARTOSAT ALIGNMENT, NEW DELHI", true);
+            
+            setTimeout(() => {
                 this.appendChatMsg("Cross-referencing Cartosat optical with RISAT SAR backscatter...");
-                setTimeout(() => {
-                    this.appendChatMsg("Result: Unauthorized construction identified. Confidence 0.88. Displaying SAR fusion overlay.");
-                    this.showImagePopup("", "");
-                }, 3000);
-            } else {
-                this.appendChatMsg("Acquiring telemetry for: " + query + ". No immediate anomalies detected in standard visual sweep.");
-            }
-        }, 1000);
+            }, 1000);
+            
+            setTimeout(() => {
+                this.appendChatMsg("Result: Unauthorized construction identified. Confidence 0.88. Displaying SAR fusion overlay.");
+                this.showImagePopup("", "");
+                this.dom.system_status_text.textContent = 'TASK COMPLETE';
+            }, 4000);
+            return;
+        }
+
+        // Otherwise, do a normal search on the globe for whatever they typed!
+        this.appendChatMsg("Initiating global sweep and telemetry acquisition for: " + query + "...");
+        this.performSearch(query);
     }
 
     showImagePopup(img1Src, img2Src) {
@@ -2066,5 +2083,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.astraApp = new AntarikshAstra();
     window.jarvisApp = window.astraApp;
 });
+
 
 

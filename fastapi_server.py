@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -48,9 +48,7 @@ async def process_query(request: QueryRequest):
         # Generic fallback using Gemini logic (stubbed for live demo safety)
         return {
             "status": "success",
-            "lat": 22.9868,
-            "lng": 87.8550,
-            "target_name": "TARGET IDENTIFIED",
+            "action": "geocode",
             "trace": "EXECUTING TRACE: GEMINI_VISION -> SPATIAL_QUERY...",
             "result": f"RESULT: ANALYSIS COMPLETE FOR '{request.query.upper()}'. NO ANOMALIES."
         }

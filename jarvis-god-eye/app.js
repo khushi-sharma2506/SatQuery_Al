@@ -2003,6 +2003,8 @@ class AntarikshAstra {
                 // Fly to location returned by backend
                 if (data.lat && data.lng) {
                     this.selectLocation(data.lat, data.lng, data.target_name || query);
+                } else if (data.action === "geocode") {
+                    this.performSearch(query);
                 }
                 
                 // Speak and show result

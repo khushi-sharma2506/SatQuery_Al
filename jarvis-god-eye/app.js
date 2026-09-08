@@ -398,6 +398,15 @@ class AntarikshAstra {
         this.initChatSandbox();
         this.animate();
         await this.bootSequence();
+        
+        // Wait for boot screen to fade out completely before greeting
+        setTimeout(() => {
+            const hour = new Date().getHours();
+            let greeting = 'Good Evening';
+            if (hour < 12) greeting = 'Good Morning';
+            else if (hour < 17) greeting = 'Good Afternoon';
+            this.appendChatMsg(greeting + '! I am Drishti, your Spatial Intelligence Assistant. How can I help you today? Try asking about deforestation, SAR analysis, or search any location.');
+        }, 1500);
     }
 
     cacheDom() {
@@ -1897,13 +1906,6 @@ class AntarikshAstra {
         this.closePopupBtn = document.getElementById('close-popup');
 
         if (this.chatInput) {
-            // Time-based greeting
-            const hour = new Date().getHours();
-            let greeting = 'Good Evening';
-            if (hour < 12) greeting = 'Good Morning';
-            else if (hour < 17) greeting = 'Good Afternoon';
-            this.appendChatMsg(greeting + '! I am Drishti, your Spatial Intelligence Assistant. How can I help you today? Try asking about deforestation, SAR analysis, or search any location.');
-
             this.chatSendBtn.addEventListener('click', () => this.handleChatQuery(this.chatInput.value));
             this.chatInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') this.handleChatQuery(this.chatInput.value);
@@ -1969,16 +1971,66 @@ class AntarikshAstra {
         this.audio.playSonar();
         const q = query.toLowerCase();
 
+        // 1. Conversational Intelligence (Frontend intercepted)
+        if (q === 'hi' || q === 'hello' || q === 'hey') {
+            this.appendChatMsg("Hello! I'm online and ready. Where should we point our satellites today?");
+            return;
+        }
+        if (q.includes('who are you') || q.includes('what are you') || q.includes('intelligent') || q.includes('smart')) {
+            this.appendChatMsg("I am Drishti Spatial AI, developed for ISRO's Antariksh Astra matrix. I can analyze satellite telemetry, perform bi-temporal change detection, and fuse multi-sensor data.");
+            return;
+        }
+        if (q.includes('thank you') || q === 'thanks') {
+            this.appendChatMsg("You're welcome! Awaiting next coordinates.");
+            return;
+        }
+
+        // 2. Connect to the Real Python Backend!
+        try {
+            this.setSystemStatus('QUERYING AGENTIC BACKEND...');
+            const response = await fetch('http://localhost:8000/api/query', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query: query })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                
+                // Log trace from backend
+                this.appendTraceLog({ step_id: "BACKEND_EXEC", action: data.trace, timestamp: new Date().toISOString() });
+                
+                // Fly to location returned by backend
+                if (data.lat && data.lng) {
+                    this.selectLocation(data.lat, data.lng, data.target_name || query);
+                }
+                
+                // Speak and show result
+                setTimeout(() => {
+                    this.appendChatMsg(data.result);
+                    if (data.result.includes("LOSS DETECTED") || data.result.includes("CONSTRUCTION IDENTIFIED")) {
+                        this.showImagePopup();
+                    }
+                    this.dom.system_status_text.textContent = 'TASK COMPLETE';
+                }, 2000);
+                
+                return;
+            }
+        } catch (e) {
+            console.warn("FastAPI backend offline, using frontend fallback.", e);
+        }
+
+        // 3. Fallback logic if Python backend is offline
         if (q.includes('deforestation') || q.includes('forest') || q.includes('change')) {
             this.setSystemStatus('ACTIVATING DRISHTI AGENTIC PIPELINE...');
-            this.appendTraceLog({ step_id: "DEF_01", module: "dofa_vlm_engine", action: "multimodal_reasoning", sensor: "cartosat_optical", timestamp: new Date().toISOString() });
-            this.performSearch("Dehradun India");
+            this.appendTraceLog({ step_id: "DEF_01", module: "dofa_vlm_engine", action: "multimodal_reasoning", timestamp: new Date().toISOString() });
+            this.selectLocation(20.5937, 78.9629, "DEFORESTATION FRONT, INDIA");
             setTimeout(() => {
                 this.appendChatMsg("Analyzing bi-temporal optical pairs for deforestation front...");
-                this.appendTraceLog({ step_id: "DEF_02", module: "schema_validator", action: "verify_gsd", gsd_m: 0.65, status: "OK" });
+                this.appendTraceLog({ step_id: "DEF_02", module: "schema_validator", action: "verify_gsd", status: "OK" });
             }, 1500);
             setTimeout(() => {
-                this.appendChatMsg("Result: 2.4 sq km forest loss detected near Dehradun. Confidence: 0.94.");
+                this.appendChatMsg("Result: 2.4 sq km forest loss detected. Confidence: 0.94.");
                 this.showImagePopup();
                 this.dom.system_status_text.textContent = 'TASK COMPLETE';
                 this.appendTraceLog({ step_id: "DEF_03", module: "output_formatter", prediction: "2.4 sq km loss", confidence: 0.94 });
@@ -1988,7 +2040,7 @@ class AntarikshAstra {
         if (q.includes('sar') || q.includes('cartosat') || q.includes('fusion') || q.includes('construction')) {
             this.setSystemStatus('ACTIVATING DOFA SENSOR-AGNOSTIC ENCODER...');
             this.appendTraceLog({ step_id: "SAR_01", module: "dofa_vlm_engine", action: "sensor_fusion", inputs: ["cartosat", "risat_sar"], timestamp: new Date().toISOString() });
-            this.performSearch("New Delhi India");
+            this.selectLocation(28.6139, 77.2090, "RISAT-CARTOSAT ALIGNMENT, NEW DELHI");
             setTimeout(() => { this.appendChatMsg("Cross-referencing Cartosat optical with RISAT SAR backscatter..."); }, 1500);
             setTimeout(() => {
                 this.appendChatMsg("Result: Unauthorized construction identified. Confidence: 0.88.");
@@ -1998,6 +2050,8 @@ class AntarikshAstra {
             }, 4500);
             return;
         }
+
+        // 4. Default generic geocoding fallback
         this.appendTraceLog({ step_id: "GEN_01", module: "search_sweep", query: query, timestamp: new Date().toISOString() });
         this.appendChatMsg("Initiating global sweep for: " + query + "...");
         this.performSearch(query);

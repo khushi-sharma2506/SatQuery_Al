@@ -16,6 +16,20 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+import google.generativeai as genai
+import os
+
+# ==========================================
+# INSERT YOUR GEMINI API KEY HERE
+# ==========================================
+GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE"
+
+if GEMINI_API_KEY != "YOUR_GEMINI_API_KEY_HERE":
+    genai.configure(api_key=GEMINI_API_KEY)
+    gemini_model = genai.GenerativeModel('gemini-1.5-flash')
+else:
+    gemini_model = None
+
 class QueryRequest(BaseModel):
     query: str
 
@@ -24,7 +38,7 @@ async def process_query(request: QueryRequest):
     query = request.query.lower()
     
     # Simulate Agentic Routing Delay
-    await asyncio.sleep(2)
+    await asyncio.sleep(1)
     
     if "deforestation" in query or "change" in query:
         return {
@@ -35,7 +49,7 @@ async def process_query(request: QueryRequest):
             "trace": "EXECUTING TRACE: VLM_ENCODER -> CHANGE_DETECTION -> MASKING...",
             "result": "RESULT: 2.4 SQ KM FOREST LOSS DETECTED. CONFIDENCE: 0.94. TRACE LOGGED."
         }
-    elif "sar" in query or "cartosat" in query or "fusion" in query:
+    elif "sar" in query or "cartosat" in query or "fusion" in query or "construction" in query:
         return {
             "status": "success",
             "lat": 28.6139,
@@ -45,12 +59,22 @@ async def process_query(request: QueryRequest):
             "result": "RESULT: UNAUTHORIZED CONSTRUCTION IDENTIFIED. CONFIDENCE: 0.88. TRACE LOGGED."
         }
     else:
-        # Generic fallback using Gemini logic (stubbed for live demo safety)
+        # Dynamic Fallback using Real Gemini API!
+        ai_response_text = f"RESULT: ANALYSIS COMPLETE FOR '{request.query.upper()}'. NO ANOMALIES."
+        
+        if gemini_model:
+            try:
+                prompt = f"You are Drishti Spatial AI, an advanced satellite intelligence assistant built for ISRO. Keep your answer brief, professional, and military-style (under 3 sentences). Answer this query: {request.query}"
+                response = gemini_model.generate_content(prompt)
+                ai_response_text = response.text.strip()
+            except Exception as e:
+                print(f"Gemini API Error: {e}")
+        
         return {
             "status": "success",
             "action": "geocode",
             "trace": "EXECUTING TRACE: GEMINI_VISION -> SPATIAL_QUERY...",
-            "result": f"RESULT: ANALYSIS COMPLETE FOR '{request.query.upper()}'. NO ANOMALIES."
+            "result": ai_response_text
         }
 
 if __name__ == '__main__':

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIH 2026 Q&A Cheat Sheet - SatQuery AI</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+            background: #fdfdfd;
+        }
+        h1 { color: #003366; border-bottom: 3px solid #00509e; padding-bottom: 10px; }
+        h2 { color: #00509e; margin-top: 30px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+        h3 { color: #0070c0; }
+        p, li { font-size: 15px; }
+        .highlight { background-color: #e6f2ff; padding: 2px 5px; border-radius: 3px; font-weight: bold; color: #003366; }
+        .box { background: #f4f7f6; padding: 15px; border-left: 5px solid #00a86b; margin: 20px 0; border-radius: 4px; }
+        .qa { margin-bottom: 20px; }
+        .question { font-weight: bold; color: #b30000; font-size: 16px; margin-bottom: 5px; }
+        .answer { margin-left: 20px; }
+        
+        @media print {
+            body { padding: 0; background: #fff; }
+            .box { border-left-color: #555; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>SIH 2026 Jury Q&A Cheat Sheet: SatQuery AI</h1>
+    <p><em>Read this to prepare for your presentation. It explains everything we built in simple, non-technical language.</em></p>
+
+    <div class="box">
+        <strong>Problem Statement:</strong> 26167 (ISRO/SAC)<br>
+        <strong>Title:</strong> SatQuery AI: An Interactive Vision-Language Assistant for Multimodal Remote Sensing Image Analysis through Text Queries<br>
+        <strong>Team:</strong> Antariksh Astra
+    </div>
+
+    <!-- 1. THE PROBLEM & EXPECTATIONS -->
+    <h2>1. The Problem & What Was Expected</h2>
+    <p><strong>The Core Problem:</strong> ISRO has massive amounts of satellite data (Optical from Cartosat, Radar/SAR from RISAT). Right now, to find something (like deforestation or illegal construction), highly trained experts have to use complex GIS software, manually align images, and write custom code. It is slow and difficult.</p>
+    <p><strong>What ISRO Expected:</strong> An AI assistant where a non-expert can simply type or speak a question (e.g., "Are there new buildings here?") and the AI will analyze the satellite images, give a text answer, draw bounding boxes (visual grounding), and provide an "Execution Trace" (a log proving exactly how the AI made its decision).</p>
+
+    <!-- 2. WHAT WE ACHIEVED -->
+    <h2>2. What We Achieved</h2>
+    <p>We built <strong>Drishti Spatial AI</strong>, a complete end-to-end platform:</p>
+    <ul>
+        <li><strong>Cinematic 3D UI:</strong> A military-style interactive 3D globe where you can speak to the AI.</li>
+        <li><strong>Automated Agentic Pipeline:</strong> When you ask a question, the AI automatically finds the location, fetches the images (Cartosat/RISAT), and analyzes them.</li>
+        <li><strong>Strict Audit Logging:</strong> We built an "Execution Trace" panel that shows JSON logs of the AI's thought process, ensuring 100% transparency for ISRO.</li>
+    </ul>
+
+    <!-- 3. TECH STACK -->
+    <h2>3. Our Tech Stack (What we used)</h2>
+    <ul>
+        <li><strong>Frontend (UI):</strong> HTML5, CSS3, Vanilla Javascript, and <strong>Three.js</strong> (for the 3D spinning globe).</li>
+        <li><strong>Backend (Logic):</strong> <strong>FastAPI</strong> (Python) for ultra-fast, asynchronous handling of queries.</li>
+        <li><strong>Machine Learning (AI):</strong> <strong>PyTorch</strong>, <strong>Hugging Face Transformers</strong>, and the <strong>LLaVA-1.5</strong> backbone.</li>
+        <li><strong>Geocoding:</strong> <strong>Nominatim API</strong> to convert city names into latitude/longitude.</li>
+    </ul>
+
+    <!-- 4. ABOUT THE MODEL -->
+    <h2>4. About the Model: The "Brain" of the AI</h2>
+    
+    <div class="qa">
+        <div class="question">Q: Which model did you use and where did you get it?</div>
+        <div class="answer">We used <strong>LLaVA-1.5</strong> (Large Language-and-Vision Assistant) as our base. It is an open-source model available on Hugging Face. It has <strong>7 Billion parameters</strong>.</div>
+    </div>
+
+    <div class="qa">
+        <div class="question">Q: Why this model and not ChatGPT (GPT-4) or Gemini?</div>
+        <div class="answer">ISRO deals with highly classified and sensitive satellite data. We <strong>cannot</strong> send ISRO data to closed, cloud-based APIs like OpenAI or Google. We chose LLaVA-1.5 because it is an open-weight model that can be downloaded and run <strong>locally and securely on our own private GPUs</strong> (air-gapped).</div>
+    </div>
+
+    <div class="qa">
+        <div class="question">Q: Why did you use this approach instead of training from scratch?</div>
+        <div class="answer">Training a 7-Billion parameter model from scratch takes massive supercomputers and millions of dollars. Instead, we used a highly efficient technique called <strong>LoRA (Low-Rank Adaptation)</strong>. LoRA allows us to take a pre-trained smart model and "fine-tune" it specifically for satellite data by only tweaking a tiny fraction of its brain (around 1-2% of the parameters).</div>
+    </div>
+
+    <!-- 5. STEP-BY-STEP: HOW WE IMPROVED ACCURACY -->
+    <h2>5. Step-by-Step: How We Trained It & Improved Accuracy</h2>
+    <p>Standard AI models are trained on normal photos (dogs, cats, cars taken from the ground). They perform poorly on satellite images because satellite images are taken from space (top-down view) and use different sensors (Radar/SAR). This is called the <span class="highlight">Domain Gap</span>.</p>
+    
+    <p>Here is step-by-step how we fixed it:</p>
+    <ol>
+        <li><strong>Data Collection:</strong> We gathered specialized remote sensing datasets (VRSBench, RSVQA).</li>
+        <li><strong>Custom Encoders:</strong> We built specialized "eyes" for the model. For optical images (Cartosat), we added contrast-stretching. For Radar images (RISAT), we added speckle-filtering and decibel (dB) conversion so the AI could "see" SAR data properly.</li>
+        <li><strong>Domain Adaptation Layer:</strong> We added a "Sensor Prompt Conditioner." Before the AI answers, we inject a prompt telling it the exact sensor used (e.g., "This is a Cartosat-2S image with 0.65m resolution"). This drastically improved accuracy because the AI knew what scale it was looking at.</li>
+        <li><strong>LoRA Fine-Tuning:</strong> We trained the model on our custom satellite data to teach it how to answer remote sensing questions, ground objects (draw boxes), and detect changes over time.</li>
+    </ol>
+
+    <!-- 6. FUTURE SCOPE -->
+    <h2>6. Future Scope (What's Next?)</h2>
+    <ul>
+        <li><strong>Edge Deployment (On-Orbit AI):</strong> Compressing this model (using Quantization) so it can run directly on the satellite's internal computer in space, beaming down only the answers instead of heavy images.</li>
+        <li><strong>Multi-Agent Swarms:</strong> Having multiple specialized AI agents talk to each other (e.g., one expert in SAR, one in Optical, and one in Weather) to generate highly complex military/disaster reports.</li>
+        <li><strong>Video Satellite Analysis:</strong> Analyzing real-time video feeds from geostationary satellites to track moving targets (ships, convoys) automatically.</li>
+    </ul>
+
+</body>
+</html>

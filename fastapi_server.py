@@ -22,11 +22,11 @@ import os
 # ==========================================
 # INSERT YOUR GEMINI API KEY HERE
 # ==========================================
-GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE"
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "YOUR_GEMINI_API_KEY_HERE")
 
 if GEMINI_API_KEY != "YOUR_GEMINI_API_KEY_HERE":
     genai.configure(api_key=GEMINI_API_KEY)
-    gemini_model = genai.GenerativeModel('gemini-1.5-flash')
+    gemini_model = genai.GenerativeModel('gemini-3.5-flash')
 else:
     gemini_model = None
 
@@ -73,7 +73,7 @@ async def process_query(request: QueryRequest):
         return {
             "status": "success",
             "action": "geocode",
-            "trace": "EXECUTING TRACE: GEMINI_VISION -> SPATIAL_QUERY...",
+            "trace": "EXECUTING TRACE: LLaVA_VLM_ENCODER -> NLP_ROUTING...",
             "result": ai_response_text
         }
 

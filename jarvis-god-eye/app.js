@@ -1725,45 +1725,7 @@ class AntarikshAstra {
     }
 
     renderFavorites() {
-        const container = this.dom.favorites_container;
-        if (!container) return;
-
-        if (this.dom.fav_count) this.dom.fav_count.textContent = this.favorites.length;
-
-        if (this.favorites.length === 0) {
-            container.innerHTML = '<div class="no-favorites">No saved targets — search a location and click ☆</div>';
-            return;
-        }
-
-        container.innerHTML = this.favorites.map((fav, i) => `
-            <div class="fav-card" data-index="${i}">
-                <div class="fav-card-name">${fav.name}</div>
-                <div class="fav-card-country">${fav.country}</div>
-                <button class="fav-card-remove" title="Remove" data-remove="${i}">✕</button>
-            </div>
-        `).join('');
-
-        container.querySelectorAll('.fav-card').forEach(card => {
-            card.addEventListener('click', (e) => {
-                if (e.target.classList.contains('fav-card-remove')) return;
-                const idx = parseInt(card.dataset.index);
-                const fav = this.favorites[idx];
-                this.audio.playBeep(980, 0.05);
-                if (this.dom.search_input) this.dom.search_input.value = fav.name;
-                this.selectLocation(fav.lat, fav.lng, `${fav.name}, ${fav.country}`);
-            });
-        });
-
-        container.querySelectorAll('.fav-card-remove').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const idx = parseInt(btn.dataset.remove);
-                this.favorites.splice(idx, 1);
-                this.saveFavorites();
-                this.renderFavorites();
-                this.updateFavButtonState();
-            });
-        });
+        return; // Disabled because the bottom panel is now the chat assistant
     }
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

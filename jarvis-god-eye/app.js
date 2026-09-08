@@ -1935,6 +1935,13 @@ class AntarikshAstra {
         this.closePopupBtn = document.getElementById('close-popup');
 
         if (this.chatInput) {
+            // Time-based greeting
+            const hour = new Date().getHours();
+            let greeting = 'Good Evening';
+            if (hour < 12) greeting = 'Good Morning';
+            else if (hour < 17) greeting = 'Good Afternoon';
+            this.appendChatMsg(greeting + '! I am Drishti, your Spatial Intelligence Assistant. How can I help you today? Try asking about deforestation, SAR analysis, or search any location.');
+
             this.chatSendBtn.addEventListener('click', () => this.handleChatQuery(this.chatInput.value));
             this.chatInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') this.handleChatQuery(this.chatInput.value);

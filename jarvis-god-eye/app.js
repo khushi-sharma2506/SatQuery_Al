@@ -2070,8 +2070,8 @@ class AntarikshAstra {
 
     showImagePopup(img1Src, img2Src) {
         if(!this.imgPopup) return;
-        this.img1.src = "https://www.isro.gov.in/media_isro/image/index/Gallery/EarthObservation/10_Cartosat2series_Doha.jpg"; 
-        this.img2.src = "https://www.isro.gov.in/media_isro/image/index/Gallery/EarthObservation/9_Cartosat2series_Doha.jpg";
+        this.img1.src = "https://placehold.co/400x300/040B14/00F0FF?text=CARTOSAT+OPTICAL+T0"; 
+        this.img2.src = "https://placehold.co/400x300/040B14/FF6B00?text=RISAT+SAR+FUSION+T1";
         this.imgPopup.classList.remove('hidden');
     }
 
@@ -2083,6 +2083,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.astraApp = new AntarikshAstra();
     window.jarvisApp = window.astraApp;
 });
+
+
 
 
 

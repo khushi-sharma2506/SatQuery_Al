@@ -395,6 +395,7 @@ class AntarikshAstra {
         this.renderFavorites();
         this.startClocks();
         this.setupResize();
+        this.initChatSandbox();
         this.animate();
         await this.bootSequence();
     }
@@ -1946,6 +1947,62 @@ class AntarikshAstra {
         }
     }
 
+        initChatSandbox() {
+        this.chatSandbox = document.getElementById('ai-chat-sandbox');
+        this.chatHistory = document.getElementById('chat-history');
+        this.chatInput = document.getElementById('chat-input');
+        this.chatVoiceBtn = document.getElementById('chat-voice-btn');
+        this.chatSendBtn = document.getElementById('chat-send-btn');
+        this.closeChatBtn = document.getElementById('close-chat');
+        this.imgPopup = document.getElementById('image-popup-overlay');
+        this.img1 = document.getElementById('popup-img-1');
+        this.img2 = document.getElementById('popup-img-2');
+        this.closePopupBtn = document.getElementById('close-popup');
+        
+        if(this.chatSandbox) {
+            setTimeout(() => {
+                this.chatSandbox.classList.remove('hidden');
+            }, 1500);
+            
+            this.closeChatBtn.addEventListener('click', () => this.chatSandbox.classList.add('hidden'));
+            this.closePopupBtn.addEventListener('click', () => this.imgPopup.classList.add('hidden'));
+            
+            this.chatSendBtn.addEventListener('click', () => this.handleChatQuery(this.chatInput.value));
+            this.chatInput.addEventListener('keypress', (e) => {
+                if(e.key === 'Enter') {
+                    this.handleChatQuery(this.chatInput.value);
+                }
+            });
+            
+            this.chatVoiceBtn.addEventListener('click', () => {
+                this.audio.playBeep(920, 0.05);
+                if(this.chatVoiceBtn.classList.contains('listening')) {
+                    this.recognition.stop();
+                    this.chatVoiceBtn.classList.remove('listening');
+                } else {
+                    this.recognition.start();
+                    this.chatVoiceBtn.classList.add('listening');
+                    this.chatInput.placeholder = "Listening...";
+                }
+            });
+            
+            if(this.recognition) {
+                const oldOnResult = this.recognition.onresult;
+                this.recognition.onresult = (event) => {
+                    const query = event.results[0][0].transcript;
+                    if(this.chatVoiceBtn && this.chatVoiceBtn.classList.contains('listening')) {
+                        this.chatInput.value = query;
+                        this.chatVoiceBtn.classList.remove('listening');
+                        this.chatInput.placeholder = "Ask Drishti...";
+                        this.handleChatQuery(query);
+                    } else if (oldOnResult) {
+                        oldOnResult.call(this.recognition, event);
+                    }
+                };
+            }
+        }
+    }
+
     appendChatMsg(text, isAi=true) {
         if(!this.chatHistory) return;
         const div = document.createElement('div');
@@ -2009,3 +2066,5 @@ document.addEventListener('DOMContentLoaded', () => {
     window.astraApp = new AntarikshAstra();
     window.jarvisApp = window.astraApp;
 });
+
+
